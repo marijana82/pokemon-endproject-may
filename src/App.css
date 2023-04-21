@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  border: 2px dashed red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inner-container {
   display: flex;
   flex-direction: column;
+  flex-basis: 1200px;
+  flex-grow: 0;
+  flex-shrink: 1;
   align-items: center;
+  margin: 30px;
+  border: 2px dashed blue;
+  width: 100%;
+}
+
+
+.content-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  border: 1px dashed black;
+  padding: 10px;
+  margin: 10px;
+
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* ======> header text styling*/
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h1 {
+  font-size: 80px;
+  font-weight:600;
+  font-style: normal;
+  font-family: "Arial Hebrew Scholar";
+  border: 1px dashed black;
+  padding: 5px;
+  margin: 5px;
+  background-image: linear-gradient(to right, darkslateblue, red);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+
 }

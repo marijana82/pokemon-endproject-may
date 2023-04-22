@@ -1,12 +1,26 @@
+import React, { useState } from "react";
 import './App.css';
+import axios from "axios";
+import {
+    Switch,
+    Route,
+    Redirect
+} from "react-router-dom";
+
+import HomePage from "./pages/home-page/HomePage";
+import BerrySearch from "./pages/berry-search/BerrySearch";
+
 
 function App() {
   return (
-      <header>
 
-        <h1>Welcome to the Poke Berry Application!</h1>
+      <>
+          <HomePage/>
 
-      </header>
+          <BerrySearch/>
+
+      </>
+
 
 
   );

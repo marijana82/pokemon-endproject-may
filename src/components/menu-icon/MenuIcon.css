@@ -1,0 +1,30 @@
+.menu-icon1, .menu-icon2, .menu-icon3 {
+    width: 40px;
+    height: 6px;
+    background-color: red;
+    margin: 6px 0;
+    transition: 0.5s;
+}
+/*rotate first bar*/
+.change .menu-icon1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+/*fade out second bar*/
+.change .menu-icon2 {
+    opacity: 0;
+}
+
+/*rotate third bar*/
+.change .menu-icon3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+
+
+
+
+.menu-icon-container {
+    display: inline-block;
+    cursor: pointer;
+}

@@ -10,19 +10,19 @@ function BerryData({ berryDetails }) {
                 if (flavorBerry.potency > 0) {
                     return (
                         <div className="berry-results">
-                            <h2>Berry Name: {berryDetails.name}</h2>
-                            <h2>Flavor:{flavorBerry.flavor.name}</h2>
-                            <h2>Natural gift type: {berryDetails.natural_gift_type.name}</h2>
-                            <h2>Type of Pokemon that
-                                likes {flavorBerry.flavor.name} taste: {berryDetails.natural_gift_type.name}</h2>
+                            <h2>Berry Name:</h2>
+                            <h3>{berryDetails.name}</h3>
+                            <h2>Flavor:</h2>
+                            <h3>{flavorBerry.flavor.name}</h3>
+                            <h2>Natural Gift Type:</h2>
+                            <h3>{berryDetails.natural_gift_type.name}</h3>
+                            <h2>Pokemon that likes {flavorBerry.flavor.name} taste:</h2>
+                            <h3>{berryDetails.natural_gift_type.name}</h3>
                         </div>
                     )
                 }
             })
             }
-
-
-
 
         </>
     )

@@ -6,8 +6,40 @@
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    border: 5px dashed black;
+    /*border: 5px dashed black;*/
     padding: 60px;
     margin: 10px;
     font-family: Didact Gothic;
+    background-image: linear-gradient( goldenrod, gold);
+
+}
+
+.header-outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    /*border: 5px dashed red;*/
+    background-image: linear-gradient( goldenrod, gold);
+
+}
+
+.header-inner-container {
+    background-image: linear-gradient( goldenrod, gold);
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1200px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    align-items: center;
+    margin: 10px;
+   /* border: 3px dashed blue;*/
+    width: 100%;
+
+}
+
+.header-description {
+    font-family: "Didact Gothic";
+    font-weight: bold;
+    font-size: 20px;
 }

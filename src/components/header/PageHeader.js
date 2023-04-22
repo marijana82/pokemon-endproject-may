@@ -5,11 +5,11 @@ import React from "react";
 
 function PageHeader({ message, description }) {
     return(
-            <header className="outer-container">
-                <article className="inner-container">
+            <header className="header-outer-container">
+                <article className="header-inner-container">
                     <div className="header-content-container">
                         <h1>{message}</h1>
-                        <p>{description}</p>
+                        <p className="header-description">{description}</p>
                     </div>
                 </article>
 

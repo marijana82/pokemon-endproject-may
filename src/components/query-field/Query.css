@@ -2,18 +2,20 @@
 
 
 #query-field {
-    width: 33vh;
+    width: 35vh;
     height: 8vh;
     border: 3px solid rebeccapurple;
-    padding: 20px;
+    padding-left: 40px;
+    padding-right: 10px;
     font-size: 30px;
     font-family: Didact Gothic;
+    font-weight: bold;
     background: aliceblue;
     transition: width 4s;
 }
 
 #query-field:hover {
-    width: 90vh;
+    width: 44vh;
 }
 
 

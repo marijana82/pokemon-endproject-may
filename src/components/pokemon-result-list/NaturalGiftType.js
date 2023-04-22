@@ -49,18 +49,15 @@ function NaturalGiftType({ berryToPoke }) {
                 <>
 
                     <h2>List of {naturalGift.name} pokemon: </h2>
-                    <ol className="pokemon-result-list">
+                    <ul className="pokemon-result-list">
                         {naturalGift && naturalGift.pokemon.slice(0,20).map((name) => {
                             return(
-
                                 <li key={name.pokemon.name}>
                                     {name.pokemon.name}
                                 </li>
-
                             )
                         })}
-                    </ol>
-
+                    </ul>
                 </>
 
                 :

@@ -18,8 +18,8 @@ function App() {
       <>
 
           <PageHeader
-              message="Poke Berry Page"
-              description="The best place to search for the tastiest berries for your Pokemons"
+              message="Poke Berry App"
+              description="The tastiest berries for your Pokemon"
           />
 
           <BerrySearch/>

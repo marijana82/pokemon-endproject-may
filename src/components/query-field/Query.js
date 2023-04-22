@@ -14,7 +14,7 @@ function Query({ searchItemHandler }) {
 
     return(
         <article className="query-container">
-            <h1>Search Poke-Berries!</h1>
+
             <form id="search-form" onSubmit={onFormSubmit}>
                 <label
                     htmlFor="query-field">

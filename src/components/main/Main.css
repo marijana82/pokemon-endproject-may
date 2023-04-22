@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Merriweather&family=Roboto:wght@300&display=swap');
 
-.header-content-container {
+.main-content-container {
     text-align: center;
     display: flex;
     flex-direction: column;

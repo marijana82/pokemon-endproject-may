@@ -13,7 +13,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  border: 2px dashed red;
+  border: 5px dashed red;
 }
 
 .inner-container {
@@ -23,13 +23,13 @@
   flex-grow: 0;
   flex-shrink: 1;
   align-items: center;
-  margin: 30px;
-  border: 2px dashed blue;
+  margin: 10px;
+  border: 3px dashed blue;
   width: 100%;
 }
 
 
-.content-container {
+/*.content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,19 +38,20 @@
   padding: 10px;
   margin: 10px;
 
-}
+}*/
 
-/* ======> header text styling*/
+/* ======> header h1 text styling*/
 
 header h1 {
   font-size: 80px;
   font-weight:600;
   font-style: normal;
-  font-family: "Arial Hebrew Scholar";
-  border: 1px dashed black;
-  padding: 5px;
+  font-family: Didact Gothic;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 35px;
   margin: 5px;
-  background-image: linear-gradient(to right, darkslateblue, red);
+  background-image: linear-gradient(to right, black, rebeccapurple);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;

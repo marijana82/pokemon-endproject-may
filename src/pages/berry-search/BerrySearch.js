@@ -4,6 +4,7 @@ import axios from "axios";
 import Query from "../../components/query-field/Query";
 import NaturalGiftType from "../../components/pokemon-result-list/NaturalGiftType";
 import BerryData from "../../components/berry-data/BerryData";
+import Main from "../../components/main/Main";
 
 
 function BerrySearch() {
@@ -55,6 +56,7 @@ function BerrySearch() {
 
     return(
         <>
+            <Main>
 
             <Query searchItemHandler={setSearchItem}/>
 
@@ -72,13 +74,12 @@ function BerrySearch() {
                 :
 
                 <div className="empty-berry-card">
-                    <p>Type a berry name. Or click here for a full berry list.</p>
+                    <p>Or click here for a full berry list.</p>
                 </div>
 
             }
 
-
-
+            </Main>
 
         </>
     );

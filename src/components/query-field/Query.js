@@ -25,10 +25,10 @@ function Query({ searchItemHandler }) {
                         id="query-field"
                         value={query}
                         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-                        placeholder="Type poke berry here! Example: cheri, figy, pinap, etc."
+                        placeholder="Type poke berry here! Example: cheri, figy, pinap, mago, wiki ... "
                     />
                 </label>
-                <button type="submit">search!</button>
+                <button type="submit" className="berry-search-button">search!</button>
             </form>
 
             <div id="search-result">

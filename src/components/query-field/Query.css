@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Merriweather&family=Roboto:wght@300&display=swap');
+
+
+#query-field {
+    width: 33vh;
+    height: 8vh;
+    border: 3px solid rebeccapurple;
+    padding: 20px;
+    font-size: 30px;
+    font-family: Didact Gothic;
+    background: aliceblue;
+    transition: width 4s;
+}
+
+#query-field:hover {
+    width: 90vh;
+}
+
+
+.query-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.berry-search-button {
+    width: 20vh;
+    height: 8vh;
+    border: 3px solid rebeccapurple;
+    border-left: none;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Didact Gothic";
+    color: aliceblue;
+    background: mediumpurple;
+    cursor: pointer;
+}
+
+.berry-search-button:hover {
+    background: rebeccapurple;
+    /*//shadow on hover*/
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}

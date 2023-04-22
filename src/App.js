@@ -15,13 +15,10 @@ function App() {
   return (
 
       <>
-          <HomePage/>
 
           <BerrySearch/>
 
       </>
-
-
 
   );
 }

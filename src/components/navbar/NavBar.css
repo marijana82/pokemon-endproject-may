@@ -1,0 +1,13 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 10px 0;
+    background-color: whitesmoke;
+    width: 100%;
+    /*border: 1px dashed black;*/
+    font-family: Didact Gothic;
+    background: transparent;
+    /*background-image: linear-gradient(gold, goldenrod);*/
+}

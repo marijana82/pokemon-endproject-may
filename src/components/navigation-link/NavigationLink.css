@@ -1,0 +1,10 @@
+nav a,
+nav a:visited,
+nav a:hover {
+    color: green;
+    text-decoration: none;
+}
+
+.active-link {
+    border-bottom: 2px solid darkred;
+}

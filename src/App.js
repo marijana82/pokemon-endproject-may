@@ -10,6 +10,7 @@ import {
 import HomePage from "./pages/home-page/HomePage";
 import BerrySearch from "./pages/berry-search/BerrySearch";
 import PageHeader from "./components/header/PageHeader";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -23,6 +24,11 @@ function App() {
           />
 
           <BerrySearch/>
+
+          <Footer
+              message="All Rights Reserved"
+              description="Copyright PokeBerryApp"
+          />
 
       </>
 

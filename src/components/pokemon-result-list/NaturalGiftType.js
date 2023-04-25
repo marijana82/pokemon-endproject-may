@@ -1,6 +1,7 @@
 import "./NaturalGiftType.css";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import Card from "../card/Card";
 
 function NaturalGiftType({ berryToPoke }) {
 
@@ -43,7 +44,8 @@ function NaturalGiftType({ berryToPoke }) {
 
 
     return(
-        <div>
+
+        <div className="container-pokemon-results">
             {naturalGift.name ?
 
                 <>
@@ -67,6 +69,8 @@ function NaturalGiftType({ berryToPoke }) {
             }
 
         </div>
-    )
+
+
+    );
 }
 export default NaturalGiftType;

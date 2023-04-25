@@ -9,7 +9,7 @@ function BerryData({ berryDetails }) {
             {berryDetails.flavors && berryDetails.flavors.map((flavorBerry) => {
                 if (flavorBerry.potency > 0) {
                     return (
-                        <div className="berry-results">
+                        <div className="container-berry-results">
                             <h2>Berry Name:</h2>
                             <h3>{berryDetails.name}</h3>
                             <h2>Flavor:</h2>

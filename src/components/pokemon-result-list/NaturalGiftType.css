@@ -7,11 +7,20 @@ h2 {
 }
 
 li {
-    font-size: 30px;
+    font-size: 20px;
     font-family: Roboto;
     color: lightgoldenrodyellow;
 }
 
 .pokemon-result-list {
     list-style-type: none;
+}
+
+.container-pokemon-results {
+    border: 1px dashed black;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+
+
 }

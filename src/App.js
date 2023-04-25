@@ -12,6 +12,10 @@ import BerrySearch from "./pages/berry-search/BerrySearch";
 import PageHeader from "./components/header/PageHeader";
 import Footer from "./components/footer/Footer";
 import NavBar from "./components/navbar/NavBar";
+import RegistrationPage from "./pages/register/RegistrationPage";
+import Main from "./components/main/Main";
+import Button from "./components/button/Button";
+import Form from "./components/form/Form";
 
 
 function App() {
@@ -20,17 +24,28 @@ function App() {
       <>
          <NavBar/>
 
-          <PageHeader
-              message="Poke Berry App"
-              description="The tastiest berries for your Pokemon"
-          />
+              <PageHeader
+                  message="Poke Berry App"
+                  description="The tastiest berries for your Pokemon"
+              />
 
-          <BerrySearch/>
+              <BerrySearch/>
 
-          <Footer
-              message="All Rights Reserved"
-              description="Copyright PokeBerryApp"
-          />
+
+          <RegistrationPage/>
+
+          <Form/>
+
+
+              <Footer
+                  message="Copyright PokeBerryApp"
+                  description="All Rights Reserved"
+              />
+
+
+
+
+
 
       </>
 

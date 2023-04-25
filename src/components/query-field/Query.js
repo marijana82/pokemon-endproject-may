@@ -1,5 +1,6 @@
 import "./Query.css";
 import React, { useState } from "react";
+import Button from "../button/Button";
 
 
 function Query({ searchItemHandler }) {
@@ -28,7 +29,11 @@ function Query({ searchItemHandler }) {
                         placeholder="Type poke berry here!"
                     />
                 </label>
-                <button type="submit" className="berry-search-button">search!</button>
+                <Button
+                    type="submit"
+                    className="berry-search-button"
+                >search me!</Button>
+
             </form>
 
             <div id="search-result">

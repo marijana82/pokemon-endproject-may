@@ -63,13 +63,13 @@ function BerrySearch() {
             {Object.keys(berryDetails).length > 0
             && berryDetails.name === searchItem ?
 
-                <>
+                <article className="berry-result-container">
 
                     <BerryData berryDetails={berryDetails}/>
 
                     <NaturalGiftType key={berryDetails.name} berryToPoke={berryDetails.natural_gift_type.url}/>
 
-                </>
+                </article>
 
                 :
 

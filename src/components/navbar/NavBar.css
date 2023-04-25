@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     list-style-type: none;
     padding: 10px 0;
     background-color: whitesmoke;
@@ -10,4 +11,18 @@
     font-family: Didact Gothic;
     background: transparent;
     /*background-image: linear-gradient(gold, goldenrod);*/
+    position: fixed;
+    height: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 30px;
 }
+
+
+
+
+
+
+
+
+

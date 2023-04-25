@@ -9,3 +9,12 @@
     margin: 10px;
     font-family: Didact Gothic;
 }
+
+.berry-result-container {
+    display: flex;
+    flex-direction: row;
+    border: 3px dashed white;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}

@@ -11,3 +11,11 @@ h3 {
     font-family: Roboto;
     color: lightgoldenrodyellow;
 }
+
+.container-berry-results {
+    border: 1px dashed black;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+
+}

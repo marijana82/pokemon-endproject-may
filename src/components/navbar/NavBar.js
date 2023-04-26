@@ -13,9 +13,9 @@ function NavBar() {
                 <ul className="nav-container">
 
                     <NavigationLink
-                        path="/start-page"
+                        path="/landing-page"
                         activeClass="active-link"
-                        labelNav="Start Page"
+                        labelNav="Landing Page"
                     />
 
                     <NavigationLink
@@ -26,41 +26,40 @@ function NavBar() {
 
 
                     <NavigationLink
-                        path="/login"
+                        path="/registration-page"
+                        activeClass="active-link"
+                        labelNav="Register"
+                    />
+
+                    <NavigationLink
+                        path="/login-page"
                         activeClass="active-link"
                         labelNav="Login"
                     />
 
                     <NavigationLink
-                        path="/register"
+                        path="/berry-search-page"
                         activeClass="active-link"
-                        labelNav="Register"
-
+                        labelNav="Berry Search"
                     />
 
                     <NavigationLink
-                        path="/berry-search"
+                        path="/berry-overview-page"
                         activeClass="active-link"
-                        labelNav="Berry"
+                        labelNav="Berry Overview"
+                    />
+
+                   {/* <NavigationLink
+                        path="/berry-individual-page"
+                        activeClass="active-link"
+                        labelNav="Berry Individual"
                     />
 
                     <NavigationLink
-                        path="/pokemon-search"
+                        path="/error-page"
                         activeClass="active-link"
-                        labelNav="Pokemon"
-                    />
-
-                    <NavigationLink
-                        path="/all-berries"
-                        activeClass="active-link"
-                        labelNav="Berry List"
-                    />
-
-                    <NavigationLink
-                        path="/one-berries"
-                        activeClass="active-link"
-                        labelNav="Berry Info Page"
-                    />
+                        labelNav="Error"
+                    />*/}
 
 
 

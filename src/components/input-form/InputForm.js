@@ -7,7 +7,9 @@ function InputForm({ labelText, inputType, placeholder, nameAttribute, idAttribu
 
     return(
 
-            <label htmlFor={idAttribute}>
+        <div className="label-container">
+            <label
+                htmlFor={idAttribute}>
                 {labelText}
 
                 <input
@@ -20,6 +22,9 @@ function InputForm({ labelText, inputType, placeholder, nameAttribute, idAttribu
                 />
 
             </label>
+        </div>
+
+
 
     );
 }

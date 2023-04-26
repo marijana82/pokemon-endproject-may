@@ -7,13 +7,15 @@ import {
     Redirect
 } from "react-router-dom";
 
-import HomePage from "./pages/home-page/HomePage";
 import BerrySearch from "./pages/berry-search/BerrySearch";
-import PageHeader from "./components/header/PageHeader";
-import Footer from "./components/footer/Footer";
 import NavBar from "./components/navbar/NavBar";
 import RegistrationPage from "./pages/register/RegistrationPage";
-import Form from "./components/form/Form";
+import LandingPage from "./pages/landing-page/LandingPage";
+import LoginPage from "./pages/login/LoginPage";
+import BerryOverviewPage from "./pages/berry-overview/BerryOverviewPage";
+import BerryIndividualPage from "./pages/berry-individual/BerryIndividualPage";
+import HomePage from "./pages/home/HomePage";
+import ErrorPage from "./pages/error/ErrorPage";
 
 
 
@@ -23,25 +25,50 @@ function App() {
       <>
 
           <NavBar/>
-          <PageHeader
-              message="Poke Berry App"
-          />
-          <BerrySearch/>
 
-          <RegistrationPage/>
+          <Switch>
+
+              <Route path="/landing-page">
+                  <LandingPage/>
+              </Route>
+
+              <Route exact path="/">
+                  <HomePage/>
+              </Route>
+
+              <Route path="/registration-page">
+                  <RegistrationPage/>
+              </Route>
+
+              <Route path="/login-page">
+                  <LoginPage/>
+              </Route>
+
+              <Route path="/berry-search-page">
+                  <BerrySearch/>
+              </Route>
+
+              <Route path="/berry-overview-page">
+                  <BerryOverviewPage/>
+              </Route>
+
+              <Route path="/berry-individual-page/:id">
+                  {/*//1. here I us dynamic url /:id*/}
+                  <BerryIndividualPage/>
+              </Route>
+
+              <Route path="/error-page">
+                  <ErrorPage/>
+              </Route>
 
 
-          <Footer
-              message="All Rights Reserved"
-              description="Copyright Poke Berry App"
-          />
 
-
-       </>
+          </Switch>
 
 
 
 
+      </>
   );
 }
 

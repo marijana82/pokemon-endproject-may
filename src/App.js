@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import BerrySearch from "./pages/berry-search/BerrySearch";
 import NavBar from "./components/navbar/NavBar";
@@ -23,7 +23,7 @@ function App() {
     //1. step 1: create a variable with a boolean true
     //2. step 2: create Private Route
     //3. step 3: create conditional rendering/ternary operator {}
-    //const isLoggedIn = true;
+    const isLoggedIn = true;
 
   return (
 
@@ -44,7 +44,7 @@ function App() {
               <Route path="/login-page" element={<LoginPage/>} />
 
 
-              <Route path="/berry-search-page" element={<BerrySearch/>} />
+              <Route path="/berry-search-page" element={isLoggedIn === true ? <BerrySearch/> : <Navigate to={"/login-page"} />} />
 
 
               <Route path="/berry-overview-page/:id" element={<BerryOverviewPage/>} />

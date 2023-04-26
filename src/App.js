@@ -19,35 +19,36 @@ import ErrorPage from "./pages/error/ErrorPage";
 
 function App() {
 
-    //beveiling van pagina's, simple example
+    //beveiling van pagina's, simpele versie
     //1. step 1: create a variable with a boolean true
     //2. step 2: create Private Route
     //3. step 3: create conditional rendering/ternary operator {}
     const isLoggedIn = true;
 
+    const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+
   return (
 
       <>
 
-          <NavBar/>
+          <NavBar isAuth={isAuthenticated} toggleAuth={toggleIsAuthenticated}/>
 
           <Routes>
 
               <Route path="/landing-page" element={<LandingPage/>}/>
 
-              {/*Nova is using Navigate to instead of Redirect to, check it out!!*/}
-              <Route exact path="/" element={<HomePage/>}/>
+              <Route path="/" element={<HomePage/>}/>
 
 
               <Route path="/registration-page" element={<RegistrationPage/>}/>
 
-              <Route path="/login-page" element={<LoginPage/>} />
+              <Route path="/login-page" element={<LoginPage toggleAuth={toggleIsAuthenticated}/>} />
 
 
-              <Route path="/berry-search-page" element={isLoggedIn === true ? <BerrySearch/> : <Navigate to={"/login-page"} />} />
+              <Route path="/berry-search-page" element={isAuthenticated ? <BerrySearch/> : <Navigate to={"/login-page"} />} />
 
 
-              <Route path="/berry-overview-page/:id" element={<BerryOverviewPage/>} />
+              <Route path="/berry-overview-page/:id" element={isAuthenticated ? <BerryOverviewPage/> : <Navigate to={"/login-page"} />} />
 
               <Route path="/berry-individual-page/:id" element={<BerryIndividualPage/>} />
                   {/*//1. here I us dynamic url /:id*/}

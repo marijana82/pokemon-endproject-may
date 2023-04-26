@@ -2,20 +2,26 @@ import "./FormLogin.css";
 import React, {useState} from "react";
 import InputForm from "../input-form/InputForm";
 import Button from "../button/Button";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
-function FormLogin() {
+function FormLogin({ isAuth, toggleAuth }) {
 
     const [nameLogin, setNameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
 
+    const navigate = useNavigate();
 
+//check out for error "toggleAuth is not a function" here:
     function handleSubmit(e) {
         e.preventDefault();
+        //toggleAuth(true);
+        navigate("/");
         console.log("Info:" + nameLogin )
         //is this function still missing something?
     }
+
+
     return(
 
             <form
@@ -61,8 +67,9 @@ function FormLogin() {
                     <Button
                         className="registration-button"
                         type="submit"
-                    >
-                        Log in
+                        clickHandler={handleSubmit}
+
+                    >Log in
                     </Button>
 
                 </div>

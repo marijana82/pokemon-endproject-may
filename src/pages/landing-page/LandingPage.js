@@ -4,9 +4,16 @@ import Footer from "../../components/footer/Footer";
 import NavBarLandingPage from "../../components/navbar-landing-page/NavBarLandingPage";
 import Main from "../../components/main/Main";
 import Button from "../../components/button/Button";
+import { useNavigate } from "react-router-dom";
 
 
 function LandingPage() {
+
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/login-page");
+    }
 
     return(
         <>
@@ -16,6 +23,8 @@ function LandingPage() {
             <Main>
                 <Button
                     type="button"
+                    clickHandler={handleClick}
+
                 >
                     Start Now!
                 </Button>

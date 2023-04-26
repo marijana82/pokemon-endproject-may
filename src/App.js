@@ -47,7 +47,7 @@ function App() {
               <Route path="/berry-search-page" element={<BerrySearch/>} />
 
 
-              <Route path="/berry-overview-page" element={<BerryOverviewPage/>} />
+              <Route path="/berry-overview-page/:id" element={<BerryOverviewPage/>} />
 
               <Route path="/berry-individual-page/:id" element={<BerryIndividualPage/>} />
                   {/*//1. here I us dynamic url /:id*/}

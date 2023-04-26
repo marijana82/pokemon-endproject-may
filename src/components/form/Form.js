@@ -2,7 +2,8 @@ import "./Form.css";
 import React, { useState } from "react";
 import Button from "../button/Button";
 import InputForm from "../input-form/InputForm";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function Form() {
@@ -12,8 +13,11 @@ function Form() {
     const [passwordValue, setPasswordValue] = useState("");
     const [repeatPassValue, setRepeatPassValue] = useState("");
 
+    const navigate = useNavigate();
+
     function handleSubmit(e) {
         e.preventDefault();
+        navigate("/");
         console.log("Info:" + nameValue )
         //is this function still missing something?
     }

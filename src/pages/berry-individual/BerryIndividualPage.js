@@ -15,7 +15,7 @@ function BerryIndividualPage() {
             <div className="container-berry-individual">
 
                 {/*//3. here I make reference to id by putting it in curly braces*/}
-                <h2>Berry Name: {id} </h2>
+                <h2>Berry Name: { id } </h2>
                 <h2>Berry Characteristic:</h2>
                 <p>Here comes image</p>
 

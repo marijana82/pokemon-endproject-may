@@ -1,10 +1,7 @@
 import "./NavBar.css";
-import NavigationLink from "../navigation-link/NavigationLink";
+import { NavLink } from "react-router-dom";
 import React from "react";
 
-
-
-//example for NavBar function/component:
 
 function NavBar() {
     return(
@@ -12,55 +9,43 @@ function NavBar() {
             <div className="inner-container">
                 <ul className="nav-container">
 
-                    <NavigationLink
-                        path="/landing-page"
-                        activeClass="active-link"
-                        labelNav="Landing Page"
-                    />
+                    <NavLink
+                        to="/landing-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Landing Page
+                    </NavLink>
 
-                    <NavigationLink
-                        path="/"
-                        activeClass="active-link"
-                        labelNav="Home"
-                    />
+                    <NavLink
+                        to="/"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Home
+                    </NavLink>
 
 
-                    <NavigationLink
-                        path="/registration-page"
-                        activeClass="active-link"
-                        labelNav="Register"
-                    />
+                    <NavLink
+                        to="/registration-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Register
+                    </NavLink>
 
-                    <NavigationLink
-                        path="/login-page"
-                        activeClass="active-link"
-                        labelNav="Login"
-                    />
+                    <NavLink
+                        to="/login-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Login
+                    </NavLink>
 
-                    <NavigationLink
-                        path="/berry-search-page"
-                        activeClass="active-link"
-                        labelNav="Berry Search"
-                    />
+                    <NavLink
+                        to="/berry-search-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Search Berry
+                    </NavLink>
 
-                    <NavigationLink
-                        path="/berry-overview-page"
-                        activeClass="active-link"
-                        labelNav="Berry Overview"
-                    />
 
-                   {/* <NavigationLink
-                        path="/berry-individual-page"
-                        activeClass="active-link"
-                        labelNav="Berry Individual"
-                    />
-
-                    <NavigationLink
-                        path="/error-page"
-                        activeClass="active-link"
-                        labelNav="Error"
-                    />*/}
-
+                    <NavLink
+                        to="/berry-overview-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Berry List
+                    </NavLink>
 
 
                 </ul>

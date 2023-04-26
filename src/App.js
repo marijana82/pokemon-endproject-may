@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
-import {
-    Switch,
-    Route,
-    Redirect
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import BerrySearch from "./pages/berry-search/BerrySearch";
 import NavBar from "./components/navbar/NavBar";
@@ -19,51 +15,47 @@ import ErrorPage from "./pages/error/ErrorPage";
 
 
 
+
+
 function App() {
+
+    //beveiling van pagina's, simple example
+    //1. step 1: create a variable with a boolean true
+    //2. step 2: create Private Route
+    //3. step 3: create conditional rendering/ternary operator {}
+    //const isLoggedIn = true;
+
   return (
 
       <>
 
           <NavBar/>
 
-          <Switch>
+          <Routes>
 
-              <Route path="/landing-page">
-                  <LandingPage/>
-              </Route>
+              <Route path="/landing-page" element={<LandingPage/>}/>
 
-              <Route exact path="/">
-                  <HomePage/>
-              </Route>
+              {/*Nova is using Navigate to instead of Redirect to, check it out!!*/}
+              <Route exact path="/" element={<HomePage/>}/>
 
-              <Route path="/registration-page">
-                  <RegistrationPage/>
-              </Route>
 
-              <Route path="/login-page">
-                  <LoginPage/>
-              </Route>
+              <Route path="/registration-page" element={<RegistrationPage/>}/>
 
-              <Route path="/berry-search-page">
-                  <BerrySearch/>
-              </Route>
+              <Route path="/login-page" element={<LoginPage/>} />
 
-              <Route path="/berry-overview-page">
-                  <BerryOverviewPage/>
-              </Route>
 
-              <Route path="/berry-individual-page/:id">
+              <Route path="/berry-search-page" element={<BerrySearch/>} />
+
+
+              <Route path="/berry-overview-page" element={<BerryOverviewPage/>} />
+
+              <Route path="/berry-individual-page/:id" element={<BerryIndividualPage/>} />
                   {/*//1. here I us dynamic url /:id*/}
-                  <BerryIndividualPage/>
-              </Route>
 
-              <Route path="/error-page">
-                  <ErrorPage/>
-              </Route>
+              <Route path="*" element={<ErrorPage/>} />
 
 
-
-          </Switch>
+          </Routes>
 
 
 

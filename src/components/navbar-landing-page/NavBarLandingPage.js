@@ -1,6 +1,6 @@
 import "./NavBarLandingPage.css";
-import NavigationLink from "../navigation-link/NavigationLink";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function NavBarLandingPage() {
     return(
@@ -8,25 +8,27 @@ function NavBarLandingPage() {
             <div className="inner-container">
                 <ul className="nav-container">
 
-                    <NavigationLink
-                        path="/landing-page"
-                        activeClass="active-link"
-                        labelNav="Landing Page"
-                    />
+                    <NavLink
+                        to="/landing-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Landing Page
+                    </NavLink>
+
+                    <NavLink
+                        to="/registration-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Register
+                    </NavLink>
+
+                    <NavLink
+                        to="/login-page"
+                        className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                    >Login
+                    </NavLink>
 
 
-                    <NavigationLink
-                        path="/login-page"
-                        activeClass="active-link"
-                        labelNav="Login"
-                    />
 
-                    <NavigationLink
-                        path="/register-page"
-                        activeClass="active-link"
-                        labelNav="Register"
 
-                    />
 
                 </ul>
             </div>

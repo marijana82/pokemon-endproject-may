@@ -2,6 +2,7 @@ import "./FormLogin.css";
 import React, {useState} from "react";
 import InputForm from "../input-form/InputForm";
 import Button from "../button/Button";
+import {Link} from "react-router-dom";
 
 
 function FormLogin() {
@@ -68,7 +69,7 @@ function FormLogin() {
 
 
                 <div className="container-sign-in">
-                    <p>Don't have an account yet? <a>Register here!</a></p>
+                    <p>Don't have an account yet? <Link to="/registration-page"><p className="link-text">Register here!</p></Link></p>
 
                 </div>
 

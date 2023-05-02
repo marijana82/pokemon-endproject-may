@@ -1,23 +1,23 @@
 import "./FormLogin.css";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import InputForm from "../input-form/InputForm";
 import Button from "../button/Button";
 import {Link, useNavigate} from "react-router-dom";
+import {LoginContext} from "../../context/LoginContext";
 
 
 function FormLogin({ toggleAuth }) {
-
     const [nameLogin, setNameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
+    const { loginFunction } = useContext(LoginContext);
 
     const navigate = useNavigate();
 
 //toggleAuth works ok!
     function handleSubmit(e) {
         e.preventDefault();
-        //toggleAuth(true);
+        loginFunction();
         navigate("/berry-search-page");
-        //is this function still missing something?
     }
 
     function handleReset() {

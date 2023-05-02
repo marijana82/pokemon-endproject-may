@@ -65,7 +65,6 @@ function BerrySearch() {
 
     return(
         <>
-            <NavBar/>
             <PageHeader
                 message="Search Your Berry!"
             />

@@ -37,7 +37,7 @@ function BerryOverviewPage() {
 
     return(
         <>
-            <NavBar/>
+
             <PageHeader
                 message="This is Berry Overview Page"
             />

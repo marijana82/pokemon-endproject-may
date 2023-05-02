@@ -25,6 +25,10 @@ function FormLogin({ toggleAuth }) {
         setPasswordLogin("");
     }
 
+    //POST-request om de ingevulde gegevens naar de backend te versturen
+    //dan krijgen we een token terug
+    //en die geven we door aan de context
+
 
     return(
 
@@ -85,7 +89,7 @@ function FormLogin({ toggleAuth }) {
 
 
                 <div className="container-sign-in">
-                    <p>Don't have an account yet? <Link to="/registration-page"><p className="link-text">Register here!</p></Link></p>
+                    <p>Don't have an account yet? <Link to="/registration-page">Register here!</Link></p>
 
                 </div>
 

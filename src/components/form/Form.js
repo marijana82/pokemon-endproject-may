@@ -4,16 +4,41 @@ import Button from "../button/Button";
 import InputForm from "../input-form/InputForm";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 function Form({ toggleAuth }) {
-
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
     const [repeatPassValue, setRepeatPassValue] = useState("");
 
+    //use state for registration
+    const [registerSuccess, setRegisterSuccess] = useState(false);
+    const [endpointRegistration, setEndpointRegistration] = useState(" https://polar-lake-14365.herokuapp.com/api/auth/signup");
+
     const navigate = useNavigate();
+
+    //async function made to handle registration, connected to the form and the submit button
+    async function onSubmitRegistration() {
+        try {
+            //here comes endpoint for registration
+            const response = await axios.post(endpointRegistration, {
+                //here comes data we need to send to backend
+                //at this moment it's hard coded data, but instead there should be state variables (the ones that the user fills in the form)
+                username: {nameValue},
+                email: {emailValue},
+                password: {passwordValue},
+                role: ["user"]
+            });
+            console.log(response);
+            setRegisterSuccess(true);
+
+        } catch(e) {
+            console.error(e);
+
+        }
+    }
 
     //toggleAuth works ok!
     function handleSubmit(e) {
@@ -22,6 +47,7 @@ function Form({ toggleAuth }) {
         navigate("/login-page");
         console.log("Info:" + nameValue )
         //is this function still missing something?
+        onSubmitRegistration();
     }
 
     function handleReset() {
@@ -115,6 +141,8 @@ function Form({ toggleAuth }) {
                 </Button>
 
             </div>
+
+            {registerSuccess && <p>You have been successfully registered! <Link to={"/login-page"}>You can now log in!</Link></p>}
 
 
                 <div className="container-sign-in">

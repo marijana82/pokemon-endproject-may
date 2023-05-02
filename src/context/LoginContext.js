@@ -33,9 +33,12 @@ function CustomLoginProvider({children}) {
 
     //15. make just normal functions we can offer to the context consumers (components that are going to use the context)
     function login() {
-        //change Logged In from false to true and vice versa
-        //here write the state setter function, and give it a new value (for example, !isLoggedIn)
+        //1. we krijgen een token aangeleverd (van de backend)
+        //2. Token in de Local Storage plaatsen
+
         console.log("User is logged in.");
+        //3. info in de state plaatsen
+        //4. isAuthenticated op TRUE zetten in de state
         setIsAuth({
             isAuthenticated: true,
             user: {
@@ -53,7 +56,10 @@ function CustomLoginProvider({children}) {
     //==> for example, if a button wants to use this function, then the function has to call for the function within the button
 
     function logout() {
+        //1. token uit de Local Storage verwijderen
         console.log("User is logged out");
+        //2. gebruikersgegevens uit de state verwijderen
+        //3. isAuthenticated op FALSE zetten
         setIsAuth({
             isAuthenticated: false,
             user: null,
@@ -64,7 +70,7 @@ function CustomLoginProvider({children}) {
 
 
     const contextData = {
-        isAuthenticated: isAuth.isAuthenticated,
+        ...isAuth,
         loginFunction: login,
         logoutFunction: logout,
     }

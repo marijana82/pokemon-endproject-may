@@ -14,12 +14,6 @@ function RegistrationPage() {
     return(
 
         <>
-            <Button
-                type="button"
-                clickHandler={() => navigate("/")}
-            >
-                Go Back
-            </Button>
             <PageHeader
                 message="Register!"
             />

@@ -21,7 +21,11 @@ export const LoginContext = createContext({});
 
 function CustomLoginProvider({children}) {
     //12. create new state so that we can use dynamic data
-    const [isAuth, toggleIsAuth] = useState(false);
+    //===> upgraded version: store more info in the state besides false or true
+    const [isAuth, setIsAuth] = useState({
+        isAuthenticated: false,
+        user: null,
+    });
     const navigate = useNavigate();
 
     //13. put the state value in the const data (without {} )
@@ -32,24 +36,35 @@ function CustomLoginProvider({children}) {
         //change Logged In from false to true and vice versa
         //here write the state setter function, and give it a new value (for example, !isLoggedIn)
         console.log("User is logged in.");
-        toggleIsAuth(true);
+        setIsAuth({
+            isAuthenticated: true,
+            user: {
+                username: "Marijana Mikolcic",
+                email: "marijana@novi.nl",
+                password: "",
+            }
+
+        });
         navigate("/");
     }
 
-    //16. give the toggleLoggedIn function to the const data, under a key with a self-made-name
+    //16. give the setLoggedIn function to the const data, under a key with a self-made-name
     //==> be careful! don't give () to the function because then it will immediately get fired up, and we don't want that!
     //==> for example, if a button wants to use this function, then the function has to call for the function within the button
 
     function logout() {
         console.log("User is logged out");
-        toggleIsAuth(false);
+        setIsAuth({
+            isAuthenticated: false,
+            user: null,
+        });
         navigate("/landing-page");
     }
 
 
 
     const contextData = {
-        isAuthorized: isAuth,
+        isAuthenticated: isAuth.isAuthenticated,
         loginFunction: login,
         logoutFunction: logout,
     }

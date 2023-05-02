@@ -17,7 +17,7 @@ import {LoginContext} from "./context/LoginContext";
 
 function App() {
 
-    const {isAuthorized} = useContext(LoginContext);
+    const {isAuthenticated} = useContext(LoginContext);
 
     //beveiling van pagina's, simpele versie
     //1. step 1: create a variable with a boolean true
@@ -25,7 +25,7 @@ function App() {
     //3. step 3: create conditional rendering/ternary operator {}
     //const isLoggedIn = true;
 
-    const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+    const [isAuthorized, toggleIsAuthorized] = useState(false);
 
   return (
       <>
@@ -40,15 +40,15 @@ function App() {
 
               <Route path="/registration-page" element={<RegistrationPage/>}/>
 
-              <Route path="/login-page" element={<LoginPage isAuthorized={toggleIsAuthenticated}/>} />
+              <Route path="/login-page" element={<LoginPage isAuthenticated={toggleIsAuthorized}/>} />
               {/*<Route path="/login-page" element={<LoginPage/>} />*/}
 
 
               {/*<Route path="/berry-search-page" element={isAuthenticated ? <BerrySearch/> : <Navigate to={"/login-page"} />} />*/}
-              <Route path="/berry-search-page" element={<BerrySearch/>} />
+              <Route path="/berry-search-page" element={isAuthenticated ? <BerrySearch/> : <RegistrationPage/>} />
 
 
-              <Route path="/berry-overview-page/" element={ <BerryOverviewPage/> } />
+              <Route path="/berry-overview-page/" element={isAuthenticated ? <BerryOverviewPage/> : <RegistrationPage/> } />
 
               <Route path="/berry-individual-page/:id" element={<BerryIndividualPage/>} />
                   {/*//1. here I us dynamic url /:id*/}

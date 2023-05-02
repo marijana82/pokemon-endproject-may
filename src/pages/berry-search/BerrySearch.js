@@ -6,8 +6,8 @@ import NaturalGiftType from "../../components/pokemon-result-list/NaturalGiftTyp
 import BerryData from "../../components/berry-data/BerryData";
 import Main from "../../components/main/Main";
 import PageHeader from "../../components/header/PageHeader";
-import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
+import {Link} from "react-router-dom";
 
 
 function BerrySearch() {
@@ -87,7 +87,7 @@ function BerrySearch() {
                 :
 
                 <div className="empty-berry-card">
-                    <p>Or click here for a full berry list.</p>
+                    <p>Or click <Link to={"/berry-overview-page"}>here</Link> for a full berry list.</p>
                 </div>
 
             }

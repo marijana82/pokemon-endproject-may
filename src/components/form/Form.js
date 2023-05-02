@@ -119,7 +119,6 @@ function Form({ toggleAuth }) {
 
                 <div className="container-sign-in">
                     <p>Already have an account? <Link to={"/login-page"}>Sign in here!</Link></p>
-
                 </div>
 
 

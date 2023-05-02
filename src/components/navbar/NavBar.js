@@ -7,14 +7,14 @@ import {LoginContext} from "../../context/LoginContext";
 
 function NavBar() {
 
-    const {isAuthorized, logoutFunction} = useContext(LoginContext);
+    const {isAuthenticated, logoutFunction} = useContext(LoginContext);
 
     return(
         <nav className="outer-container">
             <div className="inner-container">
                 <ul className="nav-container">
 
-                    {isAuthorized ?
+                    {isAuthenticated ?
 
                         <>
                             <li>

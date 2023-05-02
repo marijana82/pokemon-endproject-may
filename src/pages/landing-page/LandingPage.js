@@ -15,7 +15,7 @@ function LandingPage() {
     const navigate = useNavigate();
 
     function handleClick() {
-        navigate("/");
+        navigate("/registration-page");
     }
 
     return(

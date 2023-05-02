@@ -13,13 +13,6 @@ function LoginPage() {
 
     return(
         <>
-            <Button
-                type="button"
-                clickHandler={() => navigate("/")}
-            >
-                Go Back
-            </Button>
-
             <PageHeader
                 message="Log in!"
             />

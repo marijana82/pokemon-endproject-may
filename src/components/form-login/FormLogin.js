@@ -5,20 +5,24 @@ import Button from "../button/Button";
 import {Link, useNavigate} from "react-router-dom";
 
 
-function FormLogin({ isAuth, toggleAuth }) {
+function FormLogin({ toggleAuth }) {
 
     const [nameLogin, setNameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
 
     const navigate = useNavigate();
 
-//check out for error "toggleAuth is not a function" here:
+//toggleAuth works ok!
     function handleSubmit(e) {
         e.preventDefault();
         //toggleAuth(true);
-        navigate("/");
-        console.log("Info:" + nameLogin )
+        navigate("/berry-search-page");
         //is this function still missing something?
+    }
+
+    function handleReset() {
+        setNameLogin("");
+        setPasswordLogin("");
     }
 
 
@@ -27,7 +31,6 @@ function FormLogin({ isAuth, toggleAuth }) {
             <form
                 className="registration-form"
                 onSubmit={handleSubmit}
-
             >
                 <div className="container-register-form">
                     <p className="title-registration-form">Login form</p>
@@ -62,14 +65,20 @@ function FormLogin({ isAuth, toggleAuth }) {
                     {/*Write conditional rendering for checking is password is valid*/}
 
 
-
-
                     <Button
                         className="registration-button"
                         type="submit"
                         clickHandler={handleSubmit}
-
+                        disabled={nameLogin === "" &&
+                            passwordLogin === ""
+                        }
                     >Log in
+                    </Button>
+
+                    <Button
+                        type="button"
+                        clickHandler={handleReset}
+                    >Reset All
                     </Button>
 
                 </div>

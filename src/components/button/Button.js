@@ -7,11 +7,12 @@ function Button({ type, clickHandler, disabled, children }) {
         <button
             type={type}
             onClick={clickHandler}
-            disabled={disabled}
+            disabled={disabled || false}
+
         >
             {children}
         </button>
     );
-};
+}
 
 export default Button;

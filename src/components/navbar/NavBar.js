@@ -4,13 +4,13 @@ import React from "react";
 import Button from "../button/Button";
 
 
-function NavBar({ isAuth, toggleAuth }) {
+function NavBar() {
 
     const navigate = useNavigate();
 
     function signOut() {
-        toggleAuth(false);
-        navigate("/");
+        //toggleAuth(false);
+        navigate("/landing-page");
     }
 
     return(
@@ -26,10 +26,7 @@ function NavBar({ isAuth, toggleAuth }) {
                         </NavLink>
                     </li>*/}
 
-                    {/*Is de gebruiker ingelogd? Laat dan alle pagina's zien, en anders alleen de home, register en login knop */}
-                    {isAuth === true
-
-                        ? <>
+                    {/*Is de gebruiker ingelogd? Laat dan alle pagina's zien, en anders alleen de home, register en login knoop */}
 
                     <li>
                         <NavLink
@@ -40,23 +37,22 @@ function NavBar({ isAuth, toggleAuth }) {
                     </li>
 
 
-                    <li>
+                    {/*<li>
                         <NavLink
                             to="/registration-page"
                             className={({isActive}) => isActive === true ? "active-link" : "default-link"}
                         >Register
                         </NavLink>
-                    </li>
+                    </li>*/}
 
 
-
-                    <li>
+                    {/*<li>
                         <NavLink
                             to="/login-page"
                             className={({isActive}) => isActive === true ? "active-link" : "default-link"}
                         >Login
                         </NavLink>
-                    </li>
+                    </li>*/}
 
 
                     <li>
@@ -79,52 +75,10 @@ function NavBar({ isAuth, toggleAuth }) {
                             <li>
                                 <Button
                                     type="button"
-                                    onClick={signOut}
-                                >Log Out
+                                    clickHandler={signOut}
+                                >Sign Out
                                 </Button>
                             </li>
-
-
-                        </>
-
-                        : <>
-
-                            <li>
-                                <NavLink
-                                    to="/landing-page"
-                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
-                                >Landing Page
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
-                                >Home
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/registration-page"
-                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
-                                >Register
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/login-page"
-                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
-                                >Login
-                                </NavLink>
-                            </li>
-
-
-                        </>
-
-            }
 
 
                 </ul>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
-function Form( { toggleAuth }) {
+function Form({ toggleAuth }) {
 
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
@@ -15,14 +15,20 @@ function Form( { toggleAuth }) {
 
     const navigate = useNavigate();
 
-    //there is a mistake with toggleAuth, if it's on then I'm getting an error
-    //check tomorrow why is that!
+    //toggleAuth works ok!
     function handleSubmit(e) {
         e.preventDefault();
-        //toggleAuth(true);
-        navigate("/");
+       // toggleAuth(true);
+        navigate("/login-page");
         console.log("Info:" + nameValue )
         //is this function still missing something?
+    }
+
+    function handleReset() {
+        setNameValue("");
+        setEmailValue("");
+        setPasswordValue("");
+        setRepeatPassValue("");
     }
 
 
@@ -31,7 +37,6 @@ function Form( { toggleAuth }) {
         <form
             className="registration-form"
             onSubmit={handleSubmit}
-
         >
             <div className="container-register-form">
                 <p className="title-registration-form">Registration form</p>
@@ -94,8 +99,19 @@ function Form( { toggleAuth }) {
                     className="registration-button"
                     type="submit"
                     clickHandler={handleSubmit}
+                    disabled={nameValue === "" &&
+                        emailValue === "" &&
+                        passwordValue === "" &&
+                        repeatPassValue === ""
+                }
                 >
                     Register
+                </Button>
+
+                <Button
+                    type="button"
+                    clickHandler={handleReset}
+                >Reset All
                 </Button>
 
             </div>

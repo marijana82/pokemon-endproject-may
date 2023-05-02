@@ -5,6 +5,9 @@ import Query from "../../components/query-field/Query";
 import NaturalGiftType from "../../components/pokemon-result-list/NaturalGiftType";
 import BerryData from "../../components/berry-data/BerryData";
 import Main from "../../components/main/Main";
+import PageHeader from "../../components/header/PageHeader";
+import NavBar from "../../components/navbar/NavBar";
+import Footer from "../../components/footer/Footer";
 
 
 function BerrySearch() {
@@ -52,10 +55,21 @@ function BerrySearch() {
             });
         }
 
+        // ===> this is update-effect, meaning that:
+        // this useEffect depends on the state variable,
+        // so when this state variable gets updated,
+        // then this use-Effect gets called for
+        // and the function within it gets executed!
+
     }, [searchItem]);
 
     return(
         <>
+            <NavBar/>
+            <PageHeader
+                message="Search Your Berry!"
+            />
+
             <Main>
 
             <Query searchItemHandler={setSearchItem}/>
@@ -80,6 +94,12 @@ function BerrySearch() {
             }
 
             </Main>
+
+
+            <Footer
+                message="All Rights Reserved"
+                description="Copyright Poke Berry App"
+            />
 
         </>
     );

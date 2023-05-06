@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 
 function BerrySearch() {
 
-    const [endpointBerry, setEndpointBerry] = useState(`https://pokeapi.co/api/v2/berry`);
+    const [endpointBerry, setEndpointBerry] = useState("https://pokeapi.co/api/v2/berry?limit=64");
     const [searchItem, setSearchItem] = useState("");
     const [berryDetails, setBerryDetails] = useState({});
     //how to catch errors with state?

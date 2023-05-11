@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import App from "../App";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import checkIfTokenIsValid from "../helpers/checkIfTokenIsValid";
 
 //1. create a context variable, use createContext method of React, and initialize it with an empty object {}
 //2. make sure you can export CounterContext, so write export in front of the variable
@@ -37,7 +38,7 @@ function CustomLoginProvider({children}) {
         console.log(token);
 
         //2. check ==> is de token nog geldig?
-        if(token) {
+        if(token && checkIfTokenIsValid(token)) {
             //2.a. decode the token
             const decodedToken = jwtDecode(token);
             console.log(decodedToken);

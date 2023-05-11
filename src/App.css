@@ -33,16 +33,16 @@
 }
 
 
-/*.content-container {
+.content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  border: 1px dashed black;
+  /*border: 1px dashed black;*/
   padding: 10px;
   margin: 10px;
 
-}*/
+}
 
 /* ======> header h1 text styling*/
 

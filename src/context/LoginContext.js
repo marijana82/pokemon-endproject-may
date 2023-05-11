@@ -24,7 +24,7 @@ function CustomLoginProvider({children}) {
     //===> upgraded version: store more info in the state besides false or true
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
-        user: null,
+        user: null,  //===> information about user
     });
     const navigate = useNavigate();
 
@@ -32,19 +32,29 @@ function CustomLoginProvider({children}) {
     //14. the const data can also accept a function, next to the primitive data
 
     //15. make just normal functions we can offer to the context consumers (components that are going to use the context)
-    function login() {
-        //1. we krijgen een token aangeleverd (van de backend)
-        //2. Token in de Local Storage plaatsen
 
+    //this function (login) is responsible for putting the user's info in the state,
+    //==>for filling the local storage with the token
+    //but it is not used to log the user in over and over again
+    function login(token) {
+        //1. we krijgen een token aangeleverd (van de backend)
+        console.log(token);
         console.log("User is logged in.");
+        //2. Token in de Local Storage plaatsen
+        localStorage.setItem('token', token);
+
+
         //3. info in de state plaatsen
         //4. isAuthenticated op TRUE zetten in de state
         setIsAuth({
             isAuthenticated: true,
             user: {
-                username: "Marijana Mikolcic",
+                //instead of this hard-coded data, i have to write a new request
+                // ==> to get the right info about the user in the context:
+                //===> HOW?
+                username: "Marijana",
                 email: "marijana@novi.nl",
-                password: "",
+                //password: "",   ===> we don't save password in the state because that is NOT SAFE!
             }
 
         });
@@ -70,7 +80,7 @@ function CustomLoginProvider({children}) {
 
 
     const contextData = {
-        ...isAuth,
+        ...isAuth, //...isAuth ===> this is the whole isAuth object, spread over the context data variable en alles is direct bereikbaar (on the same level)
         loginFunction: login,
         logoutFunction: logout,
     }

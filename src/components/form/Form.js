@@ -6,55 +6,47 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
+//REGISTRATION FORM!!!
 function Form({ toggleAuth }) {
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
-    const [repeatPassValue, setRepeatPassValue] = useState("");
-
+    //const [repeatPassValue, setRepeatPassValue] = useState("");
     //use state for registration
     const [registerSuccess, setRegisterSuccess] = useState(false);
-    const [endpointRegistration, setEndpointRegistration] = useState(" https://polar-lake-14365.herokuapp.com/api/auth/signup");
 
     const navigate = useNavigate();
 
     //async function made to handle registration, connected to the form and the submit button
-    async function onSubmitRegistration() {
+    async function onSubmitRegistration(e) {
+        e.preventDefault();
+
         try {
             //here comes endpoint for registration
-            const response = await axios.post(endpointRegistration, {
+                const response = await axios.post('http://localhost:3000/register', {
                 //here comes data we need to send to backend
                 //at this moment it's hard coded data, but instead there should be state variables (the ones that the user fills in the form)
-                username: {nameValue},
-                email: {emailValue},
-                password: {passwordValue},
-                role: ["user"]
+                username: nameValue,
+                email: emailValue,
+                password: passwordValue,
+                //role: ["user"]
             });
             console.log(response);
             setRegisterSuccess(true);
+            navigate("/login-page");
 
-        } catch(e) {
-            console.error(e);
-
+        } catch(error) {
+            console.error(error);
         }
     }
 
-    //toggleAuth works ok!
-    function handleSubmit(e) {
-        e.preventDefault();
-       // toggleAuth(true);
-        navigate("/login-page");
-        console.log("Info:" + nameValue )
-        //is this function still missing something?
-        onSubmitRegistration();
-    }
+
 
     function handleReset() {
         setNameValue("");
         setEmailValue("");
         setPasswordValue("");
-        setRepeatPassValue("");
+        //setRepeatPassValue("");
     }
 
 
@@ -62,7 +54,7 @@ function Form({ toggleAuth }) {
 
         <form
             className="registration-form"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmitRegistration}
         >
             <div className="container-register-form">
                 <p className="title-registration-form">Registration form</p>
@@ -108,7 +100,7 @@ function Form({ toggleAuth }) {
                 {/*Write conditional rendering for checking is password is valid*/}
 
 
-                <InputForm
+                {/*<InputForm
                     labelText="Repeat your password"
                     idAttribute="password-repeat"
                     inputType="password"
@@ -116,23 +108,21 @@ function Form({ toggleAuth }) {
                     nameAttribute="password-repeat"
                     stateValue={repeatPassValue}
                     stateSetter={setRepeatPassValue}
-                />
+                />*/}
 
                 {/*Write conditional rendering for checking if repeated password is valid*/}
-
 
                 <Button
                     className="registration-button"
                     type="submit"
-                    clickHandler={handleSubmit}
+                    //clickHandler={handleSubmit}
                     disabled={nameValue === "" &&
                         emailValue === "" &&
-                        passwordValue === "" &&
-                        repeatPassValue === ""
+                        passwordValue === ""
                 }
-                >
-                    Register
+                > Register
                 </Button>
+
 
                 <Button
                     type="button"
@@ -146,7 +136,7 @@ function Form({ toggleAuth }) {
 
 
                 <div className="container-sign-in">
-                    <p>Already have an account? <Link to={"/login-page"}>Sign in here!</Link></p>
+                    <p>Already have an account? <Link to={"/login-page"}>Log in here!</Link></p>
                 </div>
 
 

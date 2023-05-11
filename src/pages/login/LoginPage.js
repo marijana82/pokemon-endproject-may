@@ -5,6 +5,7 @@ import PageHeader from "../../components/header/PageHeader";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Footer from "../../components/footer/Footer";
+import Main from "../../components/main/Main";
 
 
 function LoginPage() {
@@ -16,7 +17,11 @@ function LoginPage() {
             <PageHeader
                 message="Log in!"
             />
-            <FormLogin/>
+
+            <Main>
+                <FormLogin/>
+            </Main>
+
             <Footer
                 message="All Rights Reserved"
                 description="Copyright Poke Berry App"

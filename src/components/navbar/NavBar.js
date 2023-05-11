@@ -64,6 +64,15 @@ function NavBar() {
 
 
                             <li>
+                                <NavLink
+                                    to="/"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >Home
+                                </NavLink>
+                            </li>
+
+
+                            <li>
                         <NavLink
                             to="/registration-page"
                             className={({isActive}) => isActive === true ? "active-link" : "default-link"}

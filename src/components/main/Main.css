@@ -1,16 +1,3 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Merriweather&family=Roboto:wght@300&display=swap');
 
-.main-content-container {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    border: 5px dashed black;
-    padding: 10px;
-    margin: 5px;
-    font-family: Didact Gothic;
-    height: 100%;
-    width: 100%;
-}
 

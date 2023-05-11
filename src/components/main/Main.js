@@ -10,7 +10,7 @@ function Main({ children }) {
 
             <article className="inner-container">
 
-                <div className="main-content-container">
+                <div className="content-container">
                     {children}
                 </div>
             </article>

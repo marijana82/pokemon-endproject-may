@@ -35,16 +35,16 @@ function Berry({ endpointOneBerry }) {
                     <div className="berry-list">
                         <h2>Name: </h2>
                         <p>{oneBerry.name}</p>
-                        <h4>Size: </h4>
+                        <p>Size: </p>
                         <p>{oneBerry.size}</p>
-                        <h4>Smoothness: </h4>
+                        <p>Smoothness: </p>
                         <p>{oneBerry.smoothness}</p>
                     </div>
 
                     <ul className>
                         {oneBerry.flavors.map((flavor) => {
                             return(
-                                <li key={`${flavor.flavor.name}-${oneBerry.name}`}>
+                                <li key={`${flavor.flavor.name}-${oneBerry.name}`} className="berry-results">
                                     {flavor.potency > 0
                                         &&
                                         <>

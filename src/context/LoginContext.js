@@ -27,7 +27,7 @@ function CustomLoginProvider({children}) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
         user: null,  //===> information about user
-        //status: 'pending',
+        status: 'pending',
     });
 
     //HERE COMES useEffect()! and then the rest (that's what React prefers!)
@@ -35,23 +35,26 @@ function CustomLoginProvider({children}) {
         //1. check ==> is er een token?
         const token = localStorage.getItem('token');
         console.log(token);
-        //1.a. decode the token
-        const decodedToken = jwtDecode(token);
-        console.log(decodedToken);
 
         //2. check ==> is de token nog geldig?
         if(token) {
+            //2.a. decode the token
+            const decodedToken = jwtDecode(token);
+            console.log(decodedToken);
             //voor nu, this is function that is fetching data and sets it in the state (COPY/PASTED BELOW)
             //the same async function we'll need in function login(), but how to call it there?
             // ==> by taking the function declaration out of the useEffect, put it in the higher scope, and only calling it where we need it
             void fetchUserData(decodedToken, token);
 
         } else {
-
+            setIsAuth({
+                ...isAuth,
+                status: 'done',
+            });
         }
 
         //ZO JA ==> haal de gegevens over deze gebruiker op
-        //ZO NEE ==> niks doen, laat de state leeg
+        //ZO NEE ==> niks doen, laat de state leeg, and set the status on "done"
 
     }, []);
 
@@ -74,10 +77,15 @@ function CustomLoginProvider({children}) {
                     id: response.data.id,
                     username: response.data.username,
                     email: response.data.email,
-                }
+                },
+                status: 'done',
             });
-
         } catch(e) {
+            setIsAuth({
+                ...isAuth,
+                status: 'done',
+            });
+            console.error(e);
         }
     }
 
@@ -98,11 +106,9 @@ function CustomLoginProvider({children}) {
         void fetchUserData(decodedToken, token);
         //2. Token in de Local Storage plaatsen
         localStorage.setItem('token', token);
-
-
         //3. info in de state plaatsen
         //4. isAuthenticated op TRUE zetten in de state
-        setIsAuth({
+        /*setIsAuth({
             isAuthenticated: true,
             user: {
                 //instead of this hard-coded data, i have to write a new request
@@ -113,7 +119,7 @@ function CustomLoginProvider({children}) {
                 //password: "mary321",   ===> we don't save password in the state because that is NOT SAFE!
             }
 
-        });
+        });*/
         navigate("/");
     }
 
@@ -150,7 +156,7 @@ function CustomLoginProvider({children}) {
     return(
         <>
             <LoginContext.Provider value={contextData}>
-                {children}
+                {isAuth.status === 'done' ? children : <p>Loading...</p>}
             </LoginContext.Provider>
 
         </>

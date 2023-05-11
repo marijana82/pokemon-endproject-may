@@ -25,6 +25,7 @@ function App() {
     //3. step 3: create conditional rendering/ternary operator {}
     //const isLoggedIn = true;
 
+    //I should change the name of this state when i found out where i used it
     const [isAuthorized, toggleIsAuthorized] = useState(false);
 
   return (

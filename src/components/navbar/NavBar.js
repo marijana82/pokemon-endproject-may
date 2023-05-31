@@ -27,6 +27,14 @@ function NavBar() {
 
                             <li>
                                 <NavLink
+                                    to="/profile-page"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >Profile
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
                                     to="/berry-search-page"
                                     className={({isActive}) => isActive === true ? "active-link" : "default-link"}
                                 >Search Berry

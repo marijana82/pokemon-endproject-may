@@ -4,8 +4,12 @@ import axios from "axios";
 
 
 
-function Berry({ endpointOneBerry }) {
+
+function Berry({ endpointOneBerry, query }) {
     const [oneBerry, setOneBerry] = useState(null);
+    const [berryFlavor, setBerryFlavor] = useState("");
+
+
 
     useEffect(() => {
 
@@ -15,7 +19,7 @@ function Berry({ endpointOneBerry }) {
                 console.log(result.data);
                 setOneBerry(result.data);
 
-            } catch(e) {
+            } catch (e) {
                 console.error(e);
             }
         }
@@ -25,47 +29,65 @@ function Berry({ endpointOneBerry }) {
 
     }, [endpointOneBerry]);
 
+    //const filteredFlavors = oneBerry.flavors.filter((flavor) => {
+    //return(
+    //flavor.flavor.name === {value}
+    // )
+    // })
+    //AND THEN UNDER IN THE RETURN:
+    //filteredFlavors.map((filteredFlavor) => {
+    //return(
+    // {filteredFlavor.potency > 10 &&
+    //<li>{filteredFlavor.name}</li>
+    // })
+    // })
 
 
+    return (
 
-    return(
-        <section className="berry-container">
+        <>
+
             {oneBerry &&
-                <>
-                    <div className="berry-list">
-                        <h2>Name: </h2>
-                        <p>{oneBerry.name}</p>
-                        <p>Size: </p>
-                        <p>{oneBerry.size}</p>
-                        <p>Smoothness: </p>
-                        <p>{oneBerry.smoothness}</p>
-                    </div>
 
-                    <ul className>
-                        {oneBerry.flavors.map((flavor) => {
-                            return(
-                                <li key={`${flavor.flavor.name}-${oneBerry.name}`} className="berry-results">
-                                    {flavor.potency > 0
-                                        &&
-                                        <>
-                                            <p>Flavor: {flavor.flavor.name}</p>
-                                            <p>Potency: {flavor.potency}</p>
-
-                                        </>
-                                    }
-                                </li>
-                            )
-                        })
-
-                        }
+            <div className="berry-container">
+                    <ul>
+                        <li><strong>Berry name: {oneBerry.name}</strong></li>
+                        <li>Size: {oneBerry.size}</li>
+                        <li> Smoothness: {oneBerry.smoothness} </li>
+                        <li> Firmness: {oneBerry.firmness.name}</li>
+                        <li> Natural gift type: {oneBerry.natural_gift_type.name}</li>
                     </ul>
-                </>
+
+                    {oneBerry && oneBerry.flavors.map((flavor) => {
+
+                        return(
+                            <ul key={`${flavor.flavor.name}-${oneBerry.name}`} className="berry-results">
+                                {flavor.potency > 0
+
+                                    &&
+
+                                    <>
+                                        <li>Flavor: {flavor.flavor.name}</li>
+                                        <li>Potency: {flavor.potency}</li>
+                                    </>
+                                }
+                            </ul>
+
+                        )
+
+                    })
+                    }
+                </div>
+
 
             }
 
-        </section>
-    )
+        </>
+    );
+
 }
 
-
 export default Berry;
+
+
+

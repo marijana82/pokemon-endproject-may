@@ -1,7 +1,7 @@
 import "./NaturalGiftType.css";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Card from "../card/Card";
+import Card from "../card/BerryCard";
 
 function NaturalGiftType({ berryToPoke }) {
 

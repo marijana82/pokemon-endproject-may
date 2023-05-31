@@ -1,27 +1,34 @@
 import "./BerryOverviewPage.css";
-import { useParams } from "react-router-dom";
 import PageHeader from "../../components/header/PageHeader";
 import React, {useState, useEffect} from "react";
-import NavBar from "../../components/navbar/NavBar";
 import axios from "axios";
 import Berry from "../../components/berry/Berry";
 import Button from "../../components/button/Button";
+import FilterButton from "../../components/filter-button/FilterButton";
 
 
-function BerryOverviewPage() {
+
+
+function BerryOverviewPage({ oneBerryData }) {
     const [berry, setBerry] = useState([]);
     const [endpoint, setEndpoint] = useState("https://pokeapi.co/api/v2/berry");
     const [loading, toggleLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [query, setQuery] = useState("");
+    const [menuItem, setMenuItem] = useState(null);
+    const [button, setButton] = useState([]);
+
 
     useEffect(() => {
         async function fetchData() {
             toggleLoading(true);
             setError(false);
 
+
             try {
                 const result = await axios.get(endpoint);
                 setBerry(result.data);
+                setMenuItem(result.data);
 
             } catch(e) {
                 console.error(e);
@@ -35,9 +42,10 @@ function BerryOverviewPage() {
 
     }, [endpoint]);
 
+
+
     return(
         <>
-
             <PageHeader
                 message="This is Berry Overview Page"
             />
@@ -54,18 +62,37 @@ function BerryOverviewPage() {
             >Next
             </Button>
 
+            <FilterButton
+                type="button"
+                //clickHandler={() => filterBerries()}
+            >Filter Button
+            </FilterButton>
 
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="search"
+                    onChange={(e) => setQuery(e.target.value.toLowerCase())}
+                    value={query}
+                />
+
+            </div>
 
             <div>
                 {berry &&
-                    berry.results && berry.results.map((oneBerry) => {
+                    berry.results
+                    &&
+                    berry.results.map((oneBerry) => {
+
                         return(
                             <>
-                                {/*<li key={`${oneBerry.name}-${oneBerry.url}`}>
-                                <h3>{oneBerry.name}</h3>
-                                <h2>{oneBerry.url}</h2>
-                            </li>*/}
-                                <Berry key={`${oneBerry.name}`} endpointOneBerry={oneBerry.url}/>
+                                <Berry
+                                    key={`${oneBerry.name}-${oneBerry.url}`}
+                                    endpointOneBerry={oneBerry.url}
+                                    query={query}
+                                />
+
                             </>
                         )
                     })

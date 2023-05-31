@@ -1,0 +1,24 @@
+.profile-article {
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px;
+    margin: 10px;
+    font-family: Didact Gothic;
+
+}
+
+
+.profile-article-wrap {
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+
+}
+

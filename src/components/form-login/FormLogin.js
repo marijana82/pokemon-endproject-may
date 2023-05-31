@@ -7,47 +7,41 @@ import {LoginContext} from "../../context/LoginContext";
 import axios from "axios";
 
 //LOGIN FORM!!!
-function FormLogin({ toggleAuth }) {
-    //const [nameLogin, setNameLogin] = useState("");
-    const [emailLogin, setEmailLogin] = useState("");
+function FormLogin() {
+    const [nameLogin, setNameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
+    const [error, toggleError] = useState(false);
 
-    const { isAuthenticated, loginFunction } = useContext(LoginContext);
+    const { loginFunction } = useContext(LoginContext);
 
     const navigate = useNavigate();
 
-
     async function logUserIn(e) {
         e.preventDefault();
+        toggleError(false);
 
         try {
-            const response = await axios.post('http://localhost:3000/login', {
-
-                email: emailLogin,
+            const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+                username: nameLogin,
                 password: passwordLogin,
             });
-            console.log(response.data.accessToken);
+            console.log(response.data.accessToken);  //WHY DO I HAVE AN UNRESOLVED VARIABLE HERE?
             //1. roep de login-functie van de context aan, zodat de rest geregeld kan worden
             //2. pass the following argument to the loginFunction: response.data.accessToken
-            //3. pass parameter "token" to function login() in the contect
-            loginFunction(response.data.accessToken);
-
+            //3. pass parameter "token" to function login() in the context
+            loginFunction(response.data.accessToken); //WHY DO I HAVE AN UNRESOLVED VARIABLE HERE?
 
         } catch(e) {
             console.error(e);
+            toggleError(true);
         }
     }
 
-    /*function handleSubmit() {
-        loginFunction();
-        navigate("/berry-search-page");
-    }*/
 
 
     function handleReset() {
-        //setNameLogin("");
+        setNameLogin("");
         setPasswordLogin("");
-        setEmailLogin("");
     }
 
     //===>POST-request om de ingevulde gegevens naar de backend te versturen
@@ -65,7 +59,7 @@ function FormLogin({ toggleAuth }) {
                     <p className="title-registration-form">Login form</p>
                     <p>Please fill in the login form and press the Log in button in order to log in.</p>
 
-                    {/*<InputForm
+                    <InputForm
                         labelText="Your precious name"
                         idAttribute="name"
                         inputType="text"
@@ -73,23 +67,12 @@ function FormLogin({ toggleAuth }) {
                         nameAttribute="name"
                         stateValue={nameLogin}
                         stateSetter={setNameLogin}
-                    />*/}
+                    />
 
                     {/*Check how to write this more economically
                 {nameValue.length > 20 && <p>Your seems to be getting longer and longer, are you sure you are typing it correctly?</p>}
                 {nameValue.length === 0 && <p>Please type in your first and last name.</p>}*/}
 
-
-                    <InputForm
-                        labelText="Your email"
-                        idAttribute="email"
-                        inputType="email"
-                        placeholder="Email please"
-                        nameAttribute="email"
-                        stateValue={emailLogin}
-                        stateSetter={setEmailLogin}
-
-                    />
 
                     <InputForm
                         labelText="Your secret password"
@@ -107,8 +90,7 @@ function FormLogin({ toggleAuth }) {
                     <Button
                         className="registration-button"
                         type="submit"
-                        //clickHandler={handleSubmit}
-                        disabled={emailLogin === "" &&
+                        disabled={nameLogin === "" &&
                             passwordLogin === ""
                         }
                     >Log in

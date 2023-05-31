@@ -7,12 +7,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //REGISTRATION FORM!!!
-function Form({ toggleAuth }) {
+function Form() {
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
-    //const [repeatPassValue, setRepeatPassValue] = useState("");
-    //use state for registration
+    const [optionalInfoUser, setOptionalInfoUser] = useState("");
+    const [userRole, setUserRole] = useState("");
+    //state for functionality
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    //state for registration
     const [registerSuccess, setRegisterSuccess] = useState(false);
 
     const navigate = useNavigate();
@@ -20,17 +24,21 @@ function Form({ toggleAuth }) {
     //async function made to handle registration, connected to the form and the submit button
     async function onSubmitRegistration(e) {
         e.preventDefault();
+        toggleError(false);
+        toggleLoading(true);
 
         try {
-            //here comes endpoint for registration
-                const response = await axios.post('http://localhost:3000/register', {
-                //here comes data we need to send to backend
-                //at this moment it's hard coded data, but instead there should be state variables (the ones that the user fills in the form)
-                username: nameValue,
-                email: emailValue,
-                password: passwordValue,
-                //role: ["user"]
+            //endpoint for registration
+                const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                //data we need to send to backend
+                    username: nameValue,
+                    email: emailValue,
+                    password: passwordValue,
+                    info: optionalInfoUser,
+                    role: userRole,
+
             });
+                //no authorization header!
             console.log(response);
             setRegisterSuccess(true);
             navigate("/login-page");
@@ -40,13 +48,12 @@ function Form({ toggleAuth }) {
         }
     }
 
-
-
     function handleReset() {
         setNameValue("");
         setEmailValue("");
         setPasswordValue("");
-        //setRepeatPassValue("");
+        setUserRole("");
+        setOptionalInfoUser("");
     }
 
 
@@ -85,7 +92,7 @@ function Form({ toggleAuth }) {
                     stateSetter={setEmailValue}
                 />
 
-                {/*Write conditional rendering for checking is email is valid*/}
+                {/*Write conditional rendering for checking if email is valid*/}
 
                 <InputForm
                     labelText="Your secret password"
@@ -99,26 +106,36 @@ function Form({ toggleAuth }) {
 
                 {/*Write conditional rendering for checking is password is valid*/}
 
+                <InputForm
+                    labelText="Additional information"
+                    idAttribute="text"
+                    inputType="text"
+                    placeholder="Where do you come from?"
+                    nameAttribute="additional information"
+                    stateValue={optionalInfoUser}
+                    stateSetter={setOptionalInfoUser}
+                />
 
-                {/*<InputForm
-                    labelText="Repeat your password"
-                    idAttribute="password-repeat"
-                    inputType="password"
-                    placeholder="Psssst...repeat your password"
-                    nameAttribute="password-repeat"
-                    stateValue={repeatPassValue}
-                    stateSetter={setRepeatPassValue}
-                />*/}
+                <InputForm
+                    labelText="Your role"
+                    idAttribute="text"
+                    inputType="text"
+                    placeholder="What is your role?"
+                    nameAttribute="role"
+                    stateValue={userRole}
+                    stateSetter={setUserRole}
+                />
 
-                {/*Write conditional rendering for checking if repeated password is valid*/}
+                {error && <p>This account already exists. Try registering with a different username and email.</p>}
 
                 <Button
                     className="registration-button"
                     type="submit"
-                    //clickHandler={handleSubmit}
                     disabled={nameValue === "" &&
                         emailValue === "" &&
-                        passwordValue === ""
+                        passwordValue === "" &&
+                        userRole === "" &&
+                        optionalInfoUser === ""
                 }
                 > Register
                 </Button>

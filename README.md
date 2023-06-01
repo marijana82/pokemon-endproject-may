@@ -49,5 +49,5 @@ This application is using The RESTful Pokemon API. The documentation of Pokemon 
 
 
 ## 4. Login Information
-username: pokeberry
-password: poke123
+1. username: pokeberry
+2. password: poke123

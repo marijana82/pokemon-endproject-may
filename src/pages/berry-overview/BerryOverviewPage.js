@@ -7,6 +7,7 @@ import Button from "../../components/button/Button";
 import FilterButton from "../../components/filter-button/FilterButton";
 import Footer from "../../components/footer/Footer";
 import Main from "../../components/main/Main";
+import {Link} from "react-router-dom";
 
 
 
@@ -48,7 +49,7 @@ function BerryOverviewPage({ oneBerryData }) {
     return(
         <>
             <PageHeader
-                message="This is Berry Overview Page"
+                message="Berry Paradise"
             />
 
             <Main>
@@ -101,6 +102,10 @@ function BerryOverviewPage({ oneBerryData }) {
                 <div className="buttons-container">
                     {loading && <p>Berry page is loading...</p>}
                     {error && <p>Oooops...something went wrong...Please try again</p>}
+                </div>
+
+                <div className="profile-article">
+                    <p>Go to <Link to="/berry-search-page">Search Berry Page</Link></p>
                 </div>
 
 

@@ -38,7 +38,7 @@ function Profile() {
     return(
         <>
             <PageHeader
-                message="Profile Page"
+                message="Profile Page!"
             />
 
             <Main>

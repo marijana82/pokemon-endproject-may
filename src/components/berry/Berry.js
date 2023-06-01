@@ -29,19 +29,6 @@ function Berry({ endpointOneBerry, query }) {
 
     }, [endpointOneBerry]);
 
-    //const filteredFlavors = oneBerry.flavors.filter((flavor) => {
-    //return(
-    //flavor.flavor.name === {value}
-    // )
-    // })
-    //AND THEN UNDER IN THE RETURN:
-    //filteredFlavors.map((filteredFlavor) => {
-    //return(
-    // {filteredFlavor.potency > 10 &&
-    //<li>{filteredFlavor.name}</li>
-    // })
-    // })
-
 
     return (
 
@@ -52,7 +39,7 @@ function Berry({ endpointOneBerry, query }) {
             <div className="berry-container">
 
                     <ul>
-                        <li><strong>{oneBerry.item.name}</strong></li>
+                        <li><h3>{oneBerry.name}</h3></li>
                         <li>Type: {oneBerry.natural_gift_type.name}</li>
                         <li>{oneBerry.firmness.name}</li>
                         <li>smooth: {oneBerry.smoothness} </li>

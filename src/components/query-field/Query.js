@@ -26,7 +26,7 @@ function Query({ searchItemHandler }) {
                         id="query-field"
                         value={query}
                         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-                        placeholder="Type poke berry here!"
+                        placeholder="cheri, rawst, figy, wiki ..."
                     />
                 </label>
                 <Button

@@ -46,26 +46,29 @@ function Profile() {
                 <div className="profile-article-wrap">
 
                     <div className="profile-article">
-                        <h4>Welcome to Poke Berry App,</h4>
-                        <h2>{user.username}</h2>
+                        <p className="welcome-text-profile">Welcome to Poke Berry App,</p>
+                        <p className="welcome-text-username">{user.username}</p>
 
                     </div>
 
 
                     <div className="profile-article">
 
-                        <h4>Protected data:</h4>
+                        <p className="welcome-text-profile">User data:</p>
 
                         {Object.keys(profileData).length > 0 &&
                             <ul>
-                                <li>{user.email}</li>
+                                <li>Your email:<p className="welcome-text-username"> {user.email}</p></li>
+                                <li>Your ID number: <p className="welcome-text-username"> {user.id}</p></li>
+                                <li>Your profile photo: <p className="welcome-text-username"> Here comes profile photo </p></li>
+                                <li>Recently viewed items: <p className="welcome-text-username">Here come recently viewed items</p></li>
                             </ul>
                         }
 
                     </div>
 
                     <div className="profile-article">
-                        <p>Go back to <Link to="/">Home page</Link></p>
+                        <p>Go to <Link to="/berry-search-page">Search Berry Page</Link> or return to <Link to="/">Home</Link></p>
                     </div>
 
 

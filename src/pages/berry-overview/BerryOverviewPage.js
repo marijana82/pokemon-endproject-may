@@ -5,6 +5,8 @@ import axios from "axios";
 import Berry from "../../components/berry/Berry";
 import Button from "../../components/button/Button";
 import FilterButton from "../../components/filter-button/FilterButton";
+import Footer from "../../components/footer/Footer";
+import Main from "../../components/main/Main";
 
 
 
@@ -16,7 +18,6 @@ function BerryOverviewPage({ oneBerryData }) {
     const [error, setError] = useState(false);
     const [query, setQuery] = useState("");
     const [menuItem, setMenuItem] = useState(null);
-    const [button, setButton] = useState([]);
 
 
     useEffect(() => {
@@ -50,36 +51,33 @@ function BerryOverviewPage({ oneBerryData }) {
                 message="This is Berry Overview Page"
             />
 
-            <Button
-                disabled={!berry.previous}
-                clickHandler={() => setEndpoint(berry.previous)}
-            >Previous
-            </Button>
+            <Main>
 
-            <Button
-                disabled={!berry.next}
-                clickHandler={() => setEndpoint(berry.next)}
-            >Next
-            </Button>
 
-            <FilterButton
-                type="button"
-                //clickHandler={() => filterBerries()}
-            >Filter Button
-            </FilterButton>
+                <div className="buttons-container">
+                    <Button
+                        disabled={!berry.previous}
+                        clickHandler={() => setEndpoint(berry.previous)}
+                    >Previous
+                    </Button>
 
-            <div>
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    className="search"
-                    onChange={(e) => setQuery(e.target.value.toLowerCase())}
-                    value={query}
-                />
+                    <Button
+                        disabled={!berry.next}
+                        clickHandler={() => setEndpoint(berry.next)}
+                    >Next
+                    </Button>
 
-            </div>
+                    {/*filter button still not functional*/}
+                    <FilterButton
+                        type="button"
+                        //clickHandler={() => filterBerries()}
+                    >Filter Button
+                    </FilterButton>
 
-            <div>
+                </div>
+
+
+            <div className="all-berries-container">
                 {berry &&
                     berry.results
                     &&
@@ -100,8 +98,22 @@ function BerryOverviewPage({ oneBerryData }) {
                 }
             </div>
 
-            {loading && <p>Berry page is loading...</p>}
-            {error && <p>Oooops...something went wrong...</p>}
+                <div className="buttons-container">
+                    {loading && <p>Berry page is loading...</p>}
+                    {error && <p>Oooops...something went wrong...Please try again</p>}
+                </div>
+
+
+
+
+            </Main>
+
+            <Footer
+                message="All Rights Reserved"
+                description="Copyright Poke Berry App"
+            />
+
+
 
             </>
 

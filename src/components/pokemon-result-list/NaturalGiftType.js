@@ -1,7 +1,7 @@
 import "./NaturalGiftType.css";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Card from "../card/BerryCard";
+import {Link} from "react-router-dom";
 
 function NaturalGiftType({ berryToPoke }) {
 
@@ -49,7 +49,6 @@ function NaturalGiftType({ berryToPoke }) {
             {naturalGift.name ?
 
                 <>
-
                     <h2>List of {naturalGift.name} pokemon: </h2>
                     <ul className="pokemon-result-list">
                         {naturalGift && naturalGift.pokemon.slice(0,20).map((name) => {
@@ -64,7 +63,7 @@ function NaturalGiftType({ berryToPoke }) {
 
                 :
 
-                <p>No Pokemon names found!</p>
+                <p>No Pokemon names found! Please try again or go <Link to={"/berry-overview-page"}>here</Link> for a full berry list.</p>
 
             }
 

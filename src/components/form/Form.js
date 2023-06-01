@@ -5,6 +5,8 @@ import InputForm from "../input-form/InputForm";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import isValidEmail from "../../helpers/isValidEmail";
+import {isDisabled} from "@testing-library/user-event/dist/utils";
 
 //REGISTRATION FORM!!!
 function Form() {
@@ -64,11 +66,15 @@ function Form() {
             onSubmit={onSubmitRegistration}
         >
             <div className="container-register-form">
-                <p className="title-registration-form">Registration form</p>
-                <p>Please fill in the registration form and press the Register button in order to create account.</p>
+                <div className="container-register-form">
+                    <p className="title-registration-form">Registration form</p>
+                    <p>Please fill in the registration form and press the Register button in order to create account.</p>
+                </div>
+
+                {nameValue.length < 3 ? <p className="warning-messages">Please type in your username.</p> : <p className="message-validated">Great username!</p>}
 
                 <InputForm
-                    labelText="Your precious name"
+                    labelText="Your precious username"
                     idAttribute="name"
                     inputType="text"
                     placeholder="Name please"
@@ -77,10 +83,9 @@ function Form() {
                     stateSetter={setNameValue}
                 />
 
-                {/*Check how to write this more economically
-                {nameValue.length > 20 && <p>Your seems to be getting longer and longer, are you sure you are typing it correctly?</p>}
-                {nameValue.length === 0 && <p>Please type in your first and last name.</p>}*/}
 
+                {emailValue.length < 6 && <p className="warning-messages">Please make sure your email is at least 6 characters long.</p> }
+                {!isValidEmail(emailValue) ? <p className="warning-messages">Don't forget to use @ and your email domain.</p> : <p className="message-validated">Thank you!</p>}
 
                 <InputForm
                     labelText="Your unique email"
@@ -92,8 +97,7 @@ function Form() {
                     stateSetter={setEmailValue}
                 />
 
-                {/*Write conditional rendering for checking if email is valid*/}
-
+                {passwordValue.length < 6 ? <p className="warning-messages">Please make sure your password is at least 6 characters long.</p> : <p className="message-validated">Good choice!</p>}
                 <InputForm
                     labelText="Your secret password"
                     idAttribute="password"
@@ -104,8 +108,7 @@ function Form() {
                     stateSetter={setPasswordValue}
                 />
 
-                {/*Write conditional rendering for checking is password is valid*/}
-
+                {optionalInfoUser < 3 ? <p className="warning-messages">Please let us know where you're from.</p> : <p className="message-validated">Thank you!</p>}
                 <InputForm
                     labelText="Additional information"
                     idAttribute="text"
@@ -116,6 +119,7 @@ function Form() {
                     stateSetter={setOptionalInfoUser}
                 />
 
+                {userRole === "user" ? <p className="message-validated">That's right!</p> : <p className="warning-messages">Please log in as "user".</p> }
                 <InputForm
                     labelText="Your role"
                     idAttribute="text"
@@ -131,12 +135,14 @@ function Form() {
                 <Button
                     className="registration-button"
                     type="submit"
-                    disabled={nameValue === "" &&
-                        emailValue === "" &&
-                        passwordValue === "" &&
+                    disabled={nameValue.length < 6 &&
+                        emailValue.length < 6 &&
+                        !isValidEmail(emailValue) &&
+                        passwordValue.length < 6 &&
                         userRole === "" &&
                         optionalInfoUser === ""
                 }
+
                 > Register
                 </Button>
 

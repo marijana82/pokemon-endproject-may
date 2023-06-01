@@ -50,12 +50,15 @@ function Berry({ endpointOneBerry, query }) {
             {oneBerry &&
 
             <div className="berry-container">
+
                     <ul>
-                        <li><strong>Berry name: {oneBerry.name}</strong></li>
-                        <li>Size: {oneBerry.size}</li>
-                        <li> Smoothness: {oneBerry.smoothness} </li>
-                        <li> Firmness: {oneBerry.firmness.name}</li>
-                        <li> Natural gift type: {oneBerry.natural_gift_type.name}</li>
+                        <li><strong>{oneBerry.item.name}</strong></li>
+                        <li>Type: {oneBerry.natural_gift_type.name}</li>
+                        <li>{oneBerry.firmness.name}</li>
+                        <li>smooth: {oneBerry.smoothness} </li>
+                        <li>size: {oneBerry.size}</li>
+
+
                     </ul>
 
                     {oneBerry && oneBerry.flavors.map((flavor) => {
@@ -67,8 +70,7 @@ function Berry({ endpointOneBerry, query }) {
                                     &&
 
                                     <>
-                                        <li>Flavor: {flavor.flavor.name}</li>
-                                        <li>Potency: {flavor.potency}</li>
+                                        <li>{flavor.flavor.name} | {flavor.potency}</li>
                                     </>
                                 }
                             </ul>

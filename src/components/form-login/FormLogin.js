@@ -25,11 +25,8 @@ function FormLogin() {
                 username: nameLogin,
                 password: passwordLogin,
             });
-            console.log(response.data.accessToken);  //WHY DO I HAVE AN UNRESOLVED VARIABLE HERE?
-            //1. roep de login-functie van de context aan, zodat de rest geregeld kan worden
-            //2. pass the following argument to the loginFunction: response.data.accessToken
-            //3. pass parameter "token" to function login() in the context
-            loginFunction(response.data.accessToken); //WHY DO I HAVE AN UNRESOLVED VARIABLE HERE?
+            console.log(response.data.accessToken);
+            loginFunction(response.data.accessToken);
 
         } catch(e) {
             console.error(e);
@@ -43,10 +40,6 @@ function FormLogin() {
         setNameLogin("");
         setPasswordLogin("");
     }
-
-    //===>POST-request om de ingevulde gegevens naar de backend te versturen
-    //==>dan krijgen we een token terug
-    //=>en die geven we door aan de context
 
 
     return(
@@ -69,9 +62,6 @@ function FormLogin() {
                         stateSetter={setNameLogin}
                     />
 
-                    {/*Check how to write this more economically
-                {nameValue.length > 20 && <p>Your seems to be getting longer and longer, are you sure you are typing it correctly?</p>}
-                {nameValue.length === 0 && <p>Please type in your first and last name.</p>}*/}
 
 
                     <InputForm

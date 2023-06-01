@@ -15,7 +15,6 @@ function BerrySearch() {
     const [endpointBerry, setEndpointBerry] = useState("https://pokeapi.co/api/v2/berry?limit=64");
     const [searchItem, setSearchItem] = useState("");
     const [berryDetails, setBerryDetails] = useState({});
-    //how to catch errors with state?
 
     useEffect(() => {
         async function fetchBerryData() {
@@ -55,11 +54,6 @@ function BerrySearch() {
             });
         }
 
-        // ===> this is update-effect, meaning that:
-        // this useEffect depends on the state variable,
-        // so when this state variable gets updated,
-        // then this use-Effect gets called for
-        // and the function within it gets executed!
 
     }, [searchItem]);
 

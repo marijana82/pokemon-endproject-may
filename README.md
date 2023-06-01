@@ -1,10 +1,11 @@
 # Getting started with Poke Berry App
 
 ## Table of Content
-1. Tell the user what this project is about - DESCRIPTION + EXPLANATION [x]
-2. Show the user how this project looks in action - SCREENSHOT []
-3. Inform the user how to use this project - INSTALLATION [x] + FUNCTIONALITIES OF THE APP []
-4. Tell the user any other relevant details []
+1. Name of the project and project description
+2. Screenshots of several application pages
+3. Installation guide
+4. Application functionalities
+5. Login information
 
 ## 1. Name of the project
 POKE BERRY APP
@@ -49,5 +50,7 @@ This application is using The RESTful Pokemon API. The documentation of Pokemon 
 
 
 ## 4. Login Information
+You can register and login to this application by creating your own private account, 
+or you can log in to an already existing account by using the following information:
 1. username: pokeberry
 2. password: poke123

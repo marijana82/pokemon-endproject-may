@@ -74,10 +74,10 @@ function Form() {
                 {nameValue.length < 3 ? <p className="warning-messages">Please type in your username.</p> : <p className="message-validated">Great username!</p>}
 
                 <InputForm
-                    labelText="Your precious username"
+                    labelText="Your unique username"
                     idAttribute="name"
                     inputType="text"
-                    placeholder="Name please"
+                    placeholder="Username please"
                     nameAttribute="name"
                     stateValue={nameValue}
                     stateSetter={setNameValue}
@@ -88,7 +88,7 @@ function Form() {
                 {!isValidEmail(emailValue) ? <p className="warning-messages">Don't forget to use @ and your email domain.</p> : <p className="message-validated">Thank you!</p>}
 
                 <InputForm
-                    labelText="Your unique email"
+                    labelText="Your precious email"
                     idAttribute="email"
                     inputType="email"
                     placeholder="Email please"

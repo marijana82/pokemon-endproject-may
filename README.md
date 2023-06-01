@@ -19,8 +19,15 @@ This project was built for NOVI as eindopdracht leerlijn Frontend.
 Poke Berry App is a simple application built in React.
 This application is using The RESTful Pokemon API. The documentation of Pokemon API can be found on https://pokeapi.co/docs/v2 .
 
-## 2. Screenshot of Poke Berry Landing page
-INCLUDE: links, tables, code snippets
+## 2. Screenshot of Poke Berry pages
+1. Homepage
+![homepage.png](src%2Fassets%2Fhomepage.png)
+2. Login
+![login.png](src%2Fassets%2Flogin.png)
+3. Register
+![registration.png](src%2Fassets%2Fregistration.png)
+4. Overview
+![overview.png](src%2Fassets%2Foverview.png)
 
 
 ## 3.A. Installation Guide
@@ -41,4 +48,6 @@ INCLUDE: links, tables, code snippets
 4. Overview and filter
 
 
-## 4. Other Relevant Information
+## 4. Login Information
+username: pokeberry
+password: poke123

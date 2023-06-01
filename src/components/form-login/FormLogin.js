@@ -53,10 +53,10 @@ function FormLogin() {
                     <p>Please fill in the login form and press the Log in button in order to log in.</p>
 
                     <InputForm
-                        labelText="Your precious name"
+                        labelText="Your unique username"
                         idAttribute="name"
                         inputType="text"
-                        placeholder="Name please"
+                        placeholder="Username please"
                         nameAttribute="name"
                         stateValue={nameLogin}
                         stateSetter={setNameLogin}

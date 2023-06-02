@@ -53,5 +53,5 @@ This application is using The RESTful Pokemon API. The documentation of Pokemon 
 ## 4. Login Information
 You can register and login to this application by creating your own private account, 
 or you can log in to an already existing account by using the following information:
-1. username: pokeberry
-2. password: poke123
+1. username: poke
+2. password: poke1234

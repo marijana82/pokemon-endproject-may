@@ -46,7 +46,8 @@ This application is using The RESTful Pokemon API. The documentation of Pokemon 
 1. Registration
 2. Login
 3. Search-balk
-4. Overview and filter
+4. Overview
+5. Filter*
 
 
 ## 4. Login Information

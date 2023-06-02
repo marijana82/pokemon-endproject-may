@@ -3,9 +3,8 @@ import React, {useState} from "react";
 import InputTest from "../input-test/InputTest";
 import Button from "../button/Button";
 
+//example code, in the end not used for the registration and login forms in this project
 function FormTest() {
-
-    //const [auth, setAuth] = useState(false);
 
     //this is also a correct initial state
     const [formState, setFormState] = useState({

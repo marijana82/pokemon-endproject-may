@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import isValidEmail from "../../helpers/isValidEmail";
-import {isDisabled} from "@testing-library/user-event/dist/utils";
 
 //REGISTRATION FORM!!!
 function Form() {

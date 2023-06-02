@@ -1,6 +1,7 @@
 import React from "react";
 import "./MenuIcon.css";
 
+//the idea is not finished, not using this in the project
 function MenuIcon() {
     return(
         <div className="menu-icon-container">

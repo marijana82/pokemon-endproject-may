@@ -74,8 +74,6 @@ function FormLogin() {
                         stateSetter={setPasswordLogin}
                     />
 
-                    {/*Write conditional rendering for checking is password is valid*/}
-
 
                     <Button
                         className="registration-button"

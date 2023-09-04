@@ -43,11 +43,49 @@ function NavBar() {
 
                             <li>
                                 <NavLink
+                                    to="/pokemon-search-page"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >Search Pokemon
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
                                     to="/berry-overview-page"
                                     className={({isActive}) => isActive === true ? "active-link" : "default-link"}
                                 >Berry List
                                 </NavLink>
                             </li>
+
+                            <li>
+                                <NavLink
+                                    to="/berry-overview-page/individual"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >Berry Individual
+                                </NavLink>
+                            </li>
+
+
+
+                            <li>
+                                <NavLink
+                                    to="/my-favorites-page"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >My Favorites
+                                </NavLink>
+                            </li>
+
+
+                            <li>
+                                <NavLink
+                                    to="/berry-firmness"
+                                    className={({isActive}) => isActive === true ? "active-link" : "default-link"}
+                                >Berry Firmness
+                                </NavLink>
+                            </li>
+
+
+
 
                             <li>
                                 <Button

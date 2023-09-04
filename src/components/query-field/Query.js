@@ -6,12 +6,19 @@ import Button from "../button/Button";
 function Query({ searchItemHandler }) {
 
     const [query, setQuery] = useState("");
+    //const [searchParam] = useState([]);
+
     function onFormSubmit(e) {
         e.preventDefault();
         console.log("I am searching for something!");
         searchItemHandler(query);
-
     }
+
+    function resetResults(e) {
+        e.preventDefault();
+        setQuery("");
+    }
+
 
     return(
         <article className="query-container">

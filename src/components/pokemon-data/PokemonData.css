@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Merriweather&family=Roboto:wght@300&display=swap');
+
+h2 {
+    font-size: 20px;
+    font-family: "Didact Gothic";
+    color: black;
+}
+
+li {
+    font-size: 20px;
+    font-family: Roboto;
+    color: black;
+}
+
+.pokemon-result-list {
+    list-style-type: none;
+}
+
+.container-pokemon-results {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+
+
+}

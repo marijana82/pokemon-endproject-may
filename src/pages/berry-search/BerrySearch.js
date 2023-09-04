@@ -8,6 +8,8 @@ import Main from "../../components/main/Main";
 import PageHeader from "../../components/header/PageHeader";
 import Footer from "../../components/footer/Footer";
 import {Link} from "react-router-dom";
+import ToCheckList from "../../components/to-check-list/ToCheckList";
+import Button from "../../components/button/Button";
 
 
 function BerrySearch() {
@@ -15,6 +17,14 @@ function BerrySearch() {
     const [endpointBerry, setEndpointBerry] = useState("https://pokeapi.co/api/v2/berry?limit=64");
     const [searchItem, setSearchItem] = useState("");
     const [berryDetails, setBerryDetails] = useState({});
+
+    function resetResults(e) {
+        e.preventDefault();
+        setSearchItem("");
+        setBerryDetails("");
+        console.log("delete!")
+    }
+
 
     useEffect(() => {
         async function fetchBerryData() {
@@ -47,7 +57,6 @@ function BerrySearch() {
                     }
                 }
 
-
                 if (berry.name === searchItem) {
                     berryDetailsUrl();
                 }
@@ -75,6 +84,19 @@ function BerrySearch() {
                     <BerryData berryDetails={berryDetails}/>
 
                     <NaturalGiftType key={berryDetails.name} berryToPoke={berryDetails.natural_gift_type.url}/>
+
+                    <div className="empty-berry-card">
+
+                        <Button
+                            type="button"
+                            clickHandler={resetResults}
+                        >try again!</Button>
+                        <p>Or click <Link to={"/berry-overview-page"}>here</Link> for a full berry list.</p>
+                    </div>
+
+
+
+
 
                 </article>
 

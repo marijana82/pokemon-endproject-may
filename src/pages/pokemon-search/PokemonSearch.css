@@ -1,0 +1,20 @@
+.empty-berry-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px;
+    margin: 10px;
+    font-family: Didact Gothic;
+}
+
+.berry-result-container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid white;
+    box-shadow: 5px 10px orangered;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}

@@ -1,6 +1,6 @@
 import "./BerryOverviewPage.css";
 import PageHeader from "../../components/header/PageHeader";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Berry from "../../components/berry/Berry";
 import Button from "../../components/button/Button";
@@ -8,11 +8,17 @@ import FilterButton from "../../components/filter-button/FilterButton";
 import Footer from "../../components/footer/Footer";
 import Main from "../../components/main/Main";
 import {Link} from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
+import ToCheckList from "../../components/to-check-list/ToCheckList";
+import MyFavorites from "../my-favorites/MyFavorites";
+import CheckboxForm from "../../components/checkbox-form/CheckboxForm";
+import RadiobuttonDynamic from "../../components/radiobutton-dynamic/RadiobuttonDynamic";
+import FlippableCard from "../../components/flippable-card/FlippableCard";
 
 
 function BerryOverviewPage({ oneBerryData }) {
+    const navigate = useNavigate();
+
     const [berry, setBerry] = useState([]);
     const [endpoint, setEndpoint] = useState("https://pokeapi.co/api/v2/berry");
     const [loading, toggleLoading] = useState(false);
@@ -21,11 +27,14 @@ function BerryOverviewPage({ oneBerryData }) {
     const [menuItem, setMenuItem] = useState(null);
 
 
+
+
+
+
     useEffect(() => {
         async function fetchData() {
             toggleLoading(true);
             setError(false);
-
 
             try {
                 const result = await axios.get(endpoint);
@@ -46,16 +55,27 @@ function BerryOverviewPage({ oneBerryData }) {
 
 
 
+
+
+
     return(
         <>
+
+
             <PageHeader
                 message="Berry Paradise"
             />
 
+            <Button
+                type="button"
+                clickHandler={() => navigate(-1)} //or the following: navigate("/berry-search-page")
+            >go back!
+            </Button>
+
+
             <Main>
-
-
                 <div className="buttons-container">
+
                     <Button
                         disabled={!berry.previous}
                         clickHandler={() => setEndpoint(berry.previous)}
@@ -75,28 +95,34 @@ function BerryOverviewPage({ oneBerryData }) {
                     >Filter Button
                     </FilterButton>
 
+
                 </div>
 
 
             <div className="all-berries-container">
                 {berry &&
-                    berry.results
-                    &&
-                    berry.results.map((oneBerry) => {
+                        berry.results
+                        &&
+                        berry.results.map((oneBerry) => {
 
-                        return(
-                            <>
-                                <Berry
-                                    key={`${oneBerry.name}-${oneBerry.url}`}
-                                    endpointOneBerry={oneBerry.url}
-                                    query={query}
-                                />
+                            return(
+                                <>
+                                        <Berry
+                                            key={`${oneBerry.name}-${oneBerry.url}`}
+                                            endpointOneBerry={oneBerry.url}
+                                            query={query}
+                                       />
 
-                            </>
-                        )
-                    })
 
-                }
+
+
+                                </>
+                            )
+                        })
+
+                    }
+
+
             </div>
 
                 <div className="buttons-container">

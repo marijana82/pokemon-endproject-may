@@ -32,20 +32,6 @@ function LandingPage() {
 
                 <FlippableLanding/>
 
-                <Button
-                    type="button"
-                    clickHandler={handleClick}
-                >
-                    Start Now!
-                </Button>
-
-                <Button
-                    type="button"
-                    clickHandler={() => navigate("/")}
-                >
-                    About us
-
-                </Button>
 
 
             </Main>

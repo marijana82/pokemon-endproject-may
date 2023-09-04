@@ -10,19 +10,34 @@ function CardLanding({ onClick }) {
     return(
         <div className="card" onClick={onClick}>
             <div className="card-back">
-                <Button>
-                    Play!
-                </Button>
-                <p>Or flip to Start using the application now.</p>
 
+                <div>
+                    <p>Click on the button to learn more about this application.</p>
+                </div>
+
+                    <Button>
+                        Play!
+                    </Button>
+
+                <div>
+                    <p>Or flip to Start using the application now.</p>
+                </div>
 
             </div>
 
             <div className="card-front">
+                <div>
+                    <p>Click on the button to start using this application.</p>
+                </div>
+
                 <Button>
                     Start now!
                 </Button>
-                <p>Or flip to learn more about this application.</p>
+
+                <div>
+                    <p>Or flip to learn more about this application.</p>
+                </div>
+
 
             </div>
 

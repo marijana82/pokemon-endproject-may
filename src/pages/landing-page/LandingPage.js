@@ -29,8 +29,23 @@ function LandingPage() {
 
 
             <Main>
+                <div className="content-box-landing-page">
 
-                <FlippableLanding/>
+                    <div className="content-flippable">
+                        <FlippableLanding/>
+                    </div>
+
+                    <div className="content-non-flippable">
+                        <article>
+                            <h2>This is poke berry app, your favorite application for pokemon and their berries!</h2>
+                            <p>A simple application to keep your pokemon in one place and let them eat those berries.</p>
+                        </article>
+                    </div>
+
+                </div>
+
+
+
 
 
 

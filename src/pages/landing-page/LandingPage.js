@@ -7,6 +7,7 @@ import Button from "../../components/button/Button";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import FormTest from "../../components/form-test/FormTest";
+import FlippableCard from "../../components/flippable-card/FlippableCard";
 
 
 
@@ -27,6 +28,8 @@ function LandingPage() {
 
 
             <Main>
+
+                <FlippableCard/>
 
                 <Button
                     type="button"

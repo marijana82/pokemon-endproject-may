@@ -8,6 +8,7 @@
     transform-style: preserve-3d;
     user-select: none;
     cursor: pointer;
+
 }
 
 .card-front,
@@ -16,9 +17,10 @@
     width: 100%;
     border-radius: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Montserrat;
+    font-family: "Bradley Hand";
     font-weight: 30;
     font-size: 15px;
     color: white;

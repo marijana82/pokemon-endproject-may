@@ -29,7 +29,7 @@ function App() {
 
               <Route path="/landing-page" element={<LandingPage/>}/>
 
-              <Route path="/" element={<HomePage/>} />
+              <Route path="/" element={isAuthenticated ? <HomePage/> : <RegistrationPage/> } />
 
               <Route path="/profile-page" element={isAuthenticated ? <Profile/> : <RegistrationPage/>} />
 

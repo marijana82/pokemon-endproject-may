@@ -4,6 +4,7 @@ import PageHeader from "../../components/header/PageHeader";
 import React from "react";
 import Footer from "../../components/footer/Footer";
 import Main from "../../components/main/Main";
+import {Link} from "react-router-dom";
 
 
 function RegistrationPage() {
@@ -17,6 +18,7 @@ function RegistrationPage() {
 
             <Main>
                 <Form/>
+                <p>...or click <Link to={"/landing-page"}>here</Link> to go back to landing page!</p>
             </Main>
 
 

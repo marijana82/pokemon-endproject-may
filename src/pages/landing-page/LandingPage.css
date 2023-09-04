@@ -1,0 +1,25 @@
+.content-box-landing-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 600px;
+    width: 1200px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.content-box-flippable{
+    display: flex;
+    width: 400px;
+    padding: 10px;
+    margin-left: 5px;
+
+}
+
+.content-box-non-flippable{
+    display: flex;
+    width: 600px;
+    padding: 10px;
+    margin-right: 5px;
+}
+

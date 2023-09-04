@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../button/Button";
 
 
-function CardLanding() {
+function CardLanding({ onClick }) {
     const navigate = useNavigate();
+
     return(
-        <div className="card-landing">
+        <div className="card" onClick={onClick}>
             <div className="card-back">
                 <Button>
                     Play!

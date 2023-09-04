@@ -1,5 +1,4 @@
 import "./FlippableCard.css";
-
 import React from "react";
 import Card from "../card-to-flip/Card";
 import { CSSTransition } from "react-transition-group";

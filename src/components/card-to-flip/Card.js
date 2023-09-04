@@ -5,22 +5,21 @@ import React from "react";
 
 
 
-function Card({onClick}) {
+function Card({ onClick }) {
     const navigate = useNavigate();
 
     return(
         <div className="card" onClick={onClick}>
 
             <div className="card-back">
-
                 <Button
                     type="button"
                     clickHandler={() => navigate("/login-page")}
                 > Log in
                 </Button>
                 <p>or flip to register!</p>
-
             </div>
+
             <div className="card-front">
 
                 <Button

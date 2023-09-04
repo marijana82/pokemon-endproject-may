@@ -1,9 +1,9 @@
 import "./FlippableLanding.css";
 import React from "react";
-import FlippableCard from "../FlippableCard";
+import CardLanding from "../../card-to-flip/card-for-landing-page/CardLanding";
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
-import CardLanding from "../../card-to-flip/card-for-landing-page/CardLanding";
+
 
 function FlippableLanding() {
 
